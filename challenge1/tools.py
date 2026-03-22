@@ -199,7 +199,12 @@ class TripletexTools:
 
         # Auto-generate email if not provided (API requires email for STANDARD users)
         if not email:
-            email = f"{first_name.lower().replace(' ', '')}.{last_name.lower().replace(' ', '')}@example.org"
+            import unicodedata, re
+            def _ascii(s):
+                s = s.replace("Ø", "O").replace("ø", "o").replace("Æ", "AE").replace("æ", "ae").replace("Å", "A").replace("å", "a")
+                s = unicodedata.normalize("NFKD", s).encode("ascii", "ignore").decode()
+                return re.sub(r"[^a-zA-Z]", "", s).lower()
+            email = f"{_ascii(first_name)}.{_ascii(last_name)}@example.org"
 
         body = {
             "firstName": first_name,

@@ -266,6 +266,12 @@ SYSTEM_PROMPT = f"""You are a Tripletex accounting API agent. You execute accoun
 - Don't make verification GET requests after completing work.
 - Prefer composite tools over generic api_get/api_post/api_put.
 
+## Error Recovery
+- If a tool returns an error, READ the validationMessages — they tell you exactly what's wrong.
+- Common fixes: missing required field → add it. Entity not found → create it first. Account doesn't exist → create_voucher auto-creates it.
+- Do NOT retry the same call unchanged. Fix the issue first.
+- If search_entity returns 0 results, try broader search (fewer filters, wider date range).
+
 ## VAT Types
 Outgoing/sales: 3=25%, 31=15% food, 33=12% transport/hotel, 5=0% newspapers, 6=0% exempt
 Incoming/purchase: 1=25%, 11=15%, 12=12%
@@ -710,7 +716,7 @@ TOOL_DEFINITIONS = [
     },
     {
         "name": "api_get",
-        "description": "Generic GET request. Use only when no composite tool fits. NEVER use for /invoice (use search_entity instead). For /invoice and /ledger/voucher always include invoiceDateFrom/invoiceDateTo or dateFrom/dateTo params.",
+        "description": "Generic GET. Prefer search_entity for lookups. For /invoice: MUST include invoiceDateFrom + invoiceDateTo. For /ledger/voucher: MUST include dateFrom + dateTo.",
         "input_schema": {
             "type": "object",
             "properties": {
