@@ -1,0 +1,845 @@
+=== Employee ===
+  id: integer
+  version: integer
+  changes: array (readonly)
+  url: string (readonly)
+  firstName: string
+  lastName: string
+  displayName: string (readonly)
+  employeeNumber: string
+  dateOfBirth: string
+  email: string
+  phoneNumberMobileCountry: Country
+  phoneNumberMobile: string
+  phoneNumberHome: string
+  phoneNumberWork: string
+  nationalIdentityNumber: string
+  dnumber: string
+  internationalId: InternationalId
+  bankAccountNumber: string
+  iban: string
+  bic: string
+  creditorBankCountryId: integer
+  usesAbroadPayment: boolean
+  userType: string
+  allowInformationRegistration: boolean (readonly)
+  isContact: boolean
+  isProxy: boolean (readonly)
+  comments: string
+  address: Address
+  department: Department
+  employments: array
+  holidayAllowanceEarned: HolidayAllowanceEarned
+  employeeCategory: EmployeeCategory
+  isAuthProjectOverviewURL: boolean (readonly)
+  pictureId: integer (readonly)
+  companyId: integer (readonly)
+  vismaConnect2FAactive: boolean (readonly)
+
+=== Customer ===
+  id: integer
+  version: integer
+  changes: array (readonly)
+  url: string (readonly)
+  name: string
+  organizationNumber: string
+  globalLocationNumber: integer
+  supplierNumber: integer
+  customerNumber: integer
+  isSupplier: boolean
+  isCustomer: boolean (readonly)
+  isInactive: boolean
+  accountManager: Employee
+  department: Department
+  email: string
+  invoiceEmail: string
+  overdueNoticeEmail: string
+  bankAccounts: array
+  phoneNumber: string
+  phoneNumberMobile: string
+  description: string
+  language: string
+  displayName: string
+  isPrivateIndividual: boolean
+  singleCustomerInvoice: boolean
+  invoiceSendMethod: string
+  emailAttachmentType: string
+  postalAddress: Address
+  physicalAddress: Address
+  deliveryAddress: DeliveryAddress
+  category1: CustomerCategory
+  category2: CustomerCategory
+  category3: CustomerCategory
+  invoicesDueIn: integer
+  invoicesDueInType: string
+  currency: Currency
+  bankAccountPresentation: array
+  ledgerAccount: Account
+  isFactoring: boolean
+  invoiceSendSMSNotification: boolean
+  invoiceSMSNotificationNumber: string
+  isAutomaticSoftReminderEnabled: boolean
+  isAutomaticReminderEnabled: boolean
+  isAutomaticNoticeOfDebtCollectionEnabled: boolean
+  discountPercentage: number
+  website: string
+
+=== Supplier ===
+  id: integer
+  version: integer
+  changes: array (readonly)
+  url: string (readonly)
+  name: string
+  organizationNumber: string
+  supplierNumber: integer
+  customerNumber: integer
+  isSupplier: boolean (readonly)
+  isCustomer: boolean
+  isInactive: boolean
+  email: string
+  bankAccounts: array
+  invoiceEmail: string
+  overdueNoticeEmail: string
+  phoneNumber: string
+  phoneNumberMobile: string
+  description: string
+  isPrivateIndividual: boolean
+  showProducts: boolean
+  accountManager: Employee
+  postalAddress: Address
+  physicalAddress: Address
+  deliveryAddress: DeliveryAddress
+  category1: CustomerCategory
+  category2: CustomerCategory
+  category3: CustomerCategory
+  bankAccountPresentation: array
+  currency: Currency
+  ledgerAccount: Account
+  language: string
+  isWholesaler: boolean (readonly)
+  displayName: string (readonly)
+  locale: string (readonly)
+  website: string
+
+=== Product ===
+  id: integer
+  version: integer
+  changes: array (readonly)
+  url: string (readonly)
+  name: string
+  number: string
+  displayNumber: string (readonly)
+  description: string
+  orderLineDescription: string
+  ean: string
+  elNumber: string (readonly)
+  nrfNumber: string (readonly)
+  costExcludingVatCurrency: number
+  expenses: number
+  expensesInPercent: number (readonly)
+  costPrice: number (readonly)
+  profit: number (readonly)
+  profitInPercent: number (readonly)
+  priceExcludingVatCurrency: number
+  priceIncludingVatCurrency: number
+  isInactive: boolean
+  discountGroup: DiscountGroup
+  productUnit: ProductUnit
+  isStockItem: boolean
+  stockOfGoods: number (readonly)
+  availableStock: number (readonly)
+  incomingStock: number (readonly)
+  outgoingStock: number (readonly)
+  vatType: VatType
+  currency: Currency
+  department: Department
+  account: Account
+  discountPrice: number (readonly)
+  supplier: Supplier
+  resaleProduct: Product
+  isDeletable: boolean
+  hasSupplierProductConnected: boolean
+  weight: number
+  weightUnit: string
+  volume: number
+  volumeUnit: string
+  hsnCode: string
+  image: Document
+  markupListPercentage: number (readonly)
+  markupNetPercentage: number (readonly)
+  displayName: string (readonly)
+  mainSupplierProduct: SupplierProduct
+  isRoundPriceIncVat: boolean (readonly)
+  priceInTargetCurrency: number (readonly)
+  purchasePriceCurrency: number (readonly)
+  minStockLevel: number
+
+=== Invoice ===
+  id: integer
+  version: integer
+  changes: array (readonly)
+  url: string (readonly)
+  invoiceNumber: integer
+  invoiceDate: string
+  customer: Customer
+  creditedInvoice: integer (readonly)
+  isCredited: boolean (readonly)
+  invoiceDueDate: string
+  kid: string
+  invoiceComment: string (readonly)
+  comment: string
+  orders: array
+  orderLines: array (readonly)
+  travelReports: array (readonly)
+  projectInvoiceDetails: array (readonly)
+  voucher: Voucher
+  deliveryDate: string (readonly)
+  amount: number (readonly)
+  amountCurrency: number (readonly)
+  amountExcludingVat: number (readonly)
+  amountExcludingVatCurrency: number (readonly)
+  amountRoundoff: number (readonly)
+  amountRoundoffCurrency: number (readonly)
+  amountOutstanding: number (readonly)
+  amountCurrencyOutstanding: number (readonly)
+  amountOutstandingTotal: number (readonly)
+  amountCurrencyOutstandingTotal: number (readonly)
+  sumRemits: number (readonly)
+  currency: Currency
+  isCreditNote: boolean (readonly)
+  isCharged: boolean (readonly)
+  isApproved: boolean (readonly)
+  postings: array (readonly)
+  reminders: array (readonly)
+  invoiceRemarks: string
+  invoiceRemark: InvoiceRemark
+  paymentTypeId: integer
+  paidAmount: number
+  isPeriodizationPossible: boolean (readonly)
+  documentId: integer (readonly)
+  ehfSendStatus: string
+
+=== Order ===
+  id: integer
+  version: integer
+  changes: array (readonly)
+  url: string (readonly)
+  customer: Customer
+  contact: Contact
+  attn: Contact
+  displayName: string (readonly)
+  receiverEmail: string
+  overdueNoticeEmail: string
+  number: string
+  reference: string
+  ourContact: Contact
+  ourContactEmployee: Employee
+  department: Department
+  orderDate: string
+  project: Project
+  invoiceComment: string
+  currency: Currency
+  invoicesDueIn: integer
+  status: string
+  invoicesDueInType: string
+  isShowOpenPostsOnInvoices: boolean
+  isClosed: boolean
+  deliveryDate: string
+  deliveryAddress: DeliveryAddress
+  deliveryComment: string
+  isPrioritizeAmountsIncludingVat: boolean
+  orderLineSorting: string
+  orderGroups: array
+  orderLines: array
+  isSubscription: boolean
+  subscriptionDuration: integer
+  subscriptionDurationType: string
+  subscriptionPeriodsOnInvoice: integer
+  subscriptionPeriodsOnInvoiceType: string (readonly)
+  subscriptionInvoicingTimeInAdvanceOrArrears: string
+  subscriptionInvoicingTime: integer
+  subscriptionInvoicingTimeType: string
+  isSubscriptionAutoInvoicing: boolean
+  preliminaryInvoice: Invoice
+  attachment: array (readonly)
+  sendMethodDescription: string
+  canCreateBackorder: boolean (readonly)
+  invoiceOnAccountVatHigh: boolean
+  totalInvoicedOnAccountAmountAbsoluteCurrency: number (readonly)
+  invoiceSendSMSNotification: boolean (readonly)
+  invoiceSMSNotificationNumber: string
+  markUpOrderLines: number
+  discountPercentage: number
+  customerName: string (readonly)
+  projectManagerNameAndNumber: string (readonly)
+  travelReports: array (readonly)
+  accountingDimensionValues: array (readonly)
+
+=== OrderLine ===
+  id: integer
+  version: integer
+  changes: array (readonly)
+  url: string (readonly)
+  product: Product
+  inventory: Inventory
+  inventoryLocation: InventoryLocation
+  description: string
+  displayName: string (readonly)
+  count: number
+  unitCostCurrency: number
+  unitPriceExcludingVatCurrency: number
+  currency: Currency
+  markup: number
+  discount: number
+  vatType: VatType
+  amountExcludingVatCurrency: number (readonly)
+  amountIncludingVatCurrency: number (readonly)
+  vendor: Company
+  order: Order
+  unitPriceIncludingVatCurrency: number
+  isSubscription: boolean
+  subscriptionPeriodStart: string
+  subscriptionPeriodEnd: string
+  orderGroup: OrderGroup
+  sortIndex: integer
+  isPicked: boolean
+  pickedDate: string
+  orderedQuantity: number
+  isCharged: boolean
+
+=== Project ===
+  id: integer
+  version: integer
+  changes: array (readonly)
+  url: string (readonly)
+  name: string
+  number: string
+  displayName: string (readonly)
+  description: string
+  projectManager: Employee
+  department: Department
+  mainProject: Project
+  startDate: string
+  endDate: string
+  customer: Customer
+  isClosed: boolean
+  isReadyForInvoicing: boolean
+  isInternal: boolean
+  isOffer: boolean
+  isFixedPrice: boolean
+  projectCategory: ProjectCategory
+  deliveryAddress: Address
+  boligmappaAddress: Address
+  displayNameFormat: string
+  reference: string
+  externalAccountsNumber: string
+  discountPercentage: number (readonly)
+  vatType: VatType
+  fixedprice: number
+  contributionMarginPercent: number (readonly)
+  numberOfSubProjects: integer (readonly)
+  numberOfProjectParticipants: integer (readonly)
+  orderLines: array (readonly)
+  currency: Currency
+  markUpOrderLines: number
+  markUpFeesEarned: number
+  isPriceCeiling: boolean
+  priceCeilingAmount: number
+  projectHourlyRates: array
+  forParticipantsOnly: boolean
+  participants: array
+  contact: Contact
+  attention: Contact
+  invoiceComment: string
+  invoicingPlan: array (readonly)
+  preliminaryInvoice: Invoice
+  generalProjectActivitiesPerProjectOnly: boolean
+  projectActivities: array
+  hierarchyNameAndNumber: string (readonly)
+  invoiceDueDate: integer
+  invoiceDueDateType: string
+  invoiceReceiverEmail: string
+  overdueNoticeEmail: string
+  accessType: string
+  useProductNetPrice: boolean
+  ignoreCompanyProductDiscountAgreement: boolean
+  customerName: string (readonly)
+  hierarchyLevel: integer (readonly)
+  projectManagerNameAndNumber: string (readonly)
+  totalInvoicedOnAccountAmountAbsoluteCurrency: number (readonly)
+  invoiceOnAccountVatHigh: boolean
+  invoiceReserveTotalAmountCurrency: number (readonly)
+  accountingDimensionValues: array
+
+=== Department ===
+  id: integer
+  version: integer
+  changes: array (readonly)
+  url: string (readonly)
+  name: string
+  departmentNumber: string
+  departmentManager: Employee
+  displayName: string (readonly)
+  isInactive: boolean
+  businessActivityTypeId: integer (readonly)
+
+=== TravelExpense ===
+  id: integer
+  version: integer
+  changes: array (readonly)
+  url: string (readonly)
+  attestationSteps: array
+  attestation: Attestation
+  project: Project
+  employee: Employee
+  approvedBy: Employee
+  completedBy: Employee
+  rejectedBy: Employee
+  department: Department
+  freeDimension1: AccountingDimensionValue
+  freeDimension2: AccountingDimensionValue
+  freeDimension3: AccountingDimensionValue
+  payslip: Payslip
+  vatType: VatType
+  paymentCurrency: Currency
+  travelDetails: TravelDetails
+  voucher: Voucher
+  attachment: Document
+  isCompleted: boolean (readonly)
+  isApproved: boolean (readonly)
+  rejectedComment: string (readonly)
+  isChargeable: boolean
+  isFixedInvoicedAmount: boolean
+  isMarkupInvoicedPercent: boolean
+  isIncludeAttachedReceiptsWhenReinvoicing: boolean
+  completedDate: string (readonly)
+  approvedDate: string (readonly)
+  date: string (readonly)
+  travelAdvance: number
+  fixedInvoicedAmount: number
+  markupInvoicedPercent: number
+  amount: number (readonly)
+  chargeableAmountCurrency: number (readonly)
+  paymentAmount: number (readonly)
+  chargeableAmount: number (readonly)
+  lowRateVAT: number (readonly)
+  mediumRateVAT: number (readonly)
+  highRateVAT: number (readonly)
+  paymentAmountCurrency: number (readonly)
+  number: integer (readonly)
+  numberAsString: string (readonly)
+  invoice: Invoice
+  title: string
+  displayName: string (readonly)
+  displayNameWithoutNumber: string (readonly)
+  perDiemCompensations: array
+  mileageAllowances: array (readonly)
+  accommodationAllowances: array (readonly)
+  costs: array
+  attachmentCount: integer (readonly)
+  state: string (readonly)
+  stateName: string (readonly)
+  actions: array (readonly)
+  isSalaryAdmin: boolean (readonly)
+  showPayslip: boolean (readonly)
+  accountingPeriodClosed: boolean (readonly)
+  accountingPeriodVATClosed: boolean (readonly)
+  type: integer (readonly)
+
+=== Cost ===
+  id: integer
+  version: integer
+  changes: array (readonly)
+  url: string (readonly)
+  travelExpense: TravelExpense
+  vatType: VatType
+  currency: Currency
+  costCategory: TravelCostCategory
+  paymentType: TravelPaymentType
+  category: string
+  comments: string
+  rate: number
+  amountCurrencyIncVat: number
+  amountNOKInclVAT: number
+  amountNOKInclVATLow: number (readonly)
+  amountNOKInclVATMedium: number (readonly)
+  amountNOKInclVATHigh: number (readonly)
+  isPaidByEmployee: boolean (readonly)
+  isChargeable: boolean
+  date: string
+  participants: array
+  predictions: object
+
+=== PerDiemCompensation ===
+  id: integer
+  version: integer
+  changes: array (readonly)
+  url: string (readonly)
+  travelExpense: TravelExpense
+  rateType: TravelExpenseRate
+  rateCategory: TravelExpenseRateCategory
+  countryCode: string
+  travelExpenseZoneId: integer
+  overnightAccommodation: string
+  location: string
+  address: string
+  count: integer
+  rate: number
+  amount: number
+  isDeductionForBreakfast: boolean
+  isDeductionForLunch: boolean
+  isDeductionForDinner: boolean
+
+=== MileageAllowance ===
+  id: integer
+  version: integer
+  changes: array (readonly)
+  url: string (readonly)
+  travelExpense: TravelExpense
+  rateType: TravelExpenseRate
+  rateCategory: TravelExpenseRateCategory
+  date: string
+  departureLocation: string
+  destination: string
+  km: number
+  rate: number
+  amount: number
+  isCompanyCar: boolean
+  vehicleType: integer
+  passengers: array (readonly)
+  passengerSupplement: MileageAllowance
+  trailerSupplement: MileageAllowance
+  tollCost: Cost
+  drivingStops: array (readonly)
+
+=== Voucher ===
+  id: integer
+  version: integer
+  changes: array (readonly)
+  url: string (readonly)
+  date: string
+  number: integer (readonly)
+  tempNumber: integer (readonly)
+  year: integer (readonly)
+  description: string
+  voucherType: VoucherType
+  reverseVoucher: Voucher
+  postings: array
+  document: Document
+  attachment: Document
+  externalVoucherNumber: string
+  ediDocument: Document
+  supplierVoucherType: string (readonly)
+  wasAutoMatched: boolean (readonly)
+  vendorInvoiceNumber: string
+  displayName: string (readonly)
+  numberAsString: string (readonly)
+
+=== Posting ===
+  id: integer
+  version: integer
+  changes: array (readonly)
+  url: string (readonly)
+  voucher: Voucher
+  date: string
+  description: string
+  account: Account
+  amortizationAccount: Account
+  amortizationStartDate: string
+  amortizationEndDate: string
+  customer: Customer
+  supplier: Supplier
+  employee: Employee
+  project: Project
+  product: Product
+  department: Department
+  vatType: VatType
+  amount: number
+  amountCurrency: number
+  amountGross: number
+  amountGrossCurrency: number
+  currency: Currency
+  closeGroup: CloseGroup
+  invoiceNumber: string
+  termOfPayment: string
+  row: integer
+  type: string (readonly)
+  externalRef: string (readonly)
+  systemGenerated: boolean (readonly)
+  taxTransactionType: string (readonly)
+  taxTransactionTypeId: integer (readonly)
+  matched: boolean (readonly)
+  quantityAmount1: number
+  quantityType1: ProductUnit
+  quantityAmount2: number
+  quantityType2: ProductUnit
+  isVatReadonly: boolean (readonly)
+  isAmountVatClosed: boolean (readonly)
+  postingRuleId: integer
+  freeAccountingDimension1: AccountingDimensionValue
+  freeAccountingDimension2: AccountingDimensionValue
+  freeAccountingDimension3: AccountingDimensionValue
+  asset: Asset
+
+=== SalaryTransaction ===
+  id: integer
+  version: integer
+  changes: array (readonly)
+  url: string (readonly)
+  date: string
+  year: integer
+  month: integer
+  isHistorical: boolean
+  paySlipsAvailableDate: string
+  payslips: array
+
+=== Payslip ===
+  id: integer
+  version: integer
+  changes: array (readonly)
+  url: string (readonly)
+  transaction: SalaryTransaction
+  employee: Employee
+  date: string
+  year: integer
+  month: integer
+  specifications: array
+  vacationAllowanceAmount: number (readonly)
+  grossAmount: number (readonly)
+  amount: number (readonly)
+  number: integer (readonly)
+  department: Department
+
+=== SalarySpecification ===
+  id: integer
+  version: integer
+  changes: array (readonly)
+  url: string (readonly)
+  rate: number
+  count: number
+  project: Project
+  department: Department
+  salaryType: SalaryType
+  payslip: Payslip
+  employee: Employee
+  description: string
+  year: integer
+  month: integer
+  amount: number
+  specificationSupplement: SalarySpecificationSupplement
+
+=== SalaryType ===
+  id: integer
+  version: integer
+  changes: array (readonly)
+  url: string (readonly)
+  number: string
+  name: string
+  description: string
+  showInTimesheet: boolean (readonly)
+  isSickPayable: boolean (readonly)
+  isVacationPayable: boolean (readonly)
+  isTaxable: boolean (readonly)
+  payStatementCodeCode: string (readonly)
+  ameldingWageCode: string (readonly)
+  accountNumberDebit: Account
+  accountNumberCredit: Account
+  isPayrollTaxable: boolean (readonly)
+
+=== Employment ===
+  id: integer
+  version: integer
+  changes: array (readonly)
+  url: string (readonly)
+  employee: Employee
+  employmentId: string
+  startDate: string
+  endDate: string
+  employmentEndReason: string
+  division: Division
+  lastSalaryChangeDate: string
+  noEmploymentRelationship: boolean
+  isMainEmployer: boolean
+  taxDeductionCode: string
+  employmentDetails: array
+  isRemoveAccessAtEmploymentEnded: boolean
+  latestSalary: EmploymentDetails
+
+=== EmploymentDetails ===
+  id: integer
+  version: integer
+  changes: array (readonly)
+  url: string (readonly)
+  employment: Employment
+  date: string
+  employmentType: string
+  employmentForm: string
+  maritimeEmployment: MaritimeEmployment
+  remunerationType: string
+  workingHoursScheme: string
+  shiftDurationHours: number
+  occupationCode: OccupationCode
+  percentageOfFullTimeEquivalent: number
+  annualSalary: number
+  hourlyWage: number
+  payrollTaxMunicipalityId: Municipality
+  monthlySalary: number (readonly)
+
+=== Activity ===
+  id: integer
+  version: integer
+  changes: array (readonly)
+  url: string (readonly)
+  name: string
+  number: string
+  description: string
+  activityType: string
+  isProjectActivity: boolean (readonly)
+  isGeneral: boolean (readonly)
+  isTask: boolean (readonly)
+  isDisabled: boolean (readonly)
+  isChargeable: boolean
+  rate: number
+  costPercentage: number
+  displayName: string
+  deletable: boolean (readonly)
+
+=== TimesheetEntry ===
+  id: integer
+  version: integer
+  changes: array (readonly)
+  url: string (readonly)
+  project: Project
+  activity: Activity
+  date: string
+  hours: number
+  chargeableHours: number (readonly)
+  employee: Employee
+  timeClocks: array (readonly)
+  comment: string
+  locked: boolean (readonly)
+  chargeable: boolean (readonly)
+  invoice: Invoice
+  hourlyRate: number (readonly)
+  hourlyCost: number (readonly)
+  hourlyCostPercentage: number (readonly)
+  projectChargeableHours: number
+
+=== AccountingDimensionName ===
+  id: integer
+  version: integer
+  changes: array (readonly)
+  url: string (readonly)
+  dimensionName: string
+  description: string
+  dimensionIndex: integer (readonly)
+  active: boolean
+
+=== AccountingDimensionValue ===
+  id: integer
+  version: integer
+  changes: array (readonly)
+  url: string (readonly)
+  displayName: string
+  nameAndNumber: string (readonly)
+  dimensionIndex: integer
+  active: boolean
+  number: string
+  showInVoucherRegistration: boolean
+  position: integer
+
+=== Contact ===
+  id: integer
+  version: integer
+  changes: array (readonly)
+  url: string (readonly)
+  firstName: string
+  lastName: string
+  displayName: string
+  email: string
+  phoneNumberMobileCountry: Country
+  phoneNumberMobile: string
+  phoneNumberWork: string
+  customer: Customer
+  department: Department
+  isInactive: boolean
+
+=== Address ===
+  id: integer
+  version: integer
+  changes: array (readonly)
+  url: string (readonly)
+  addressLine1: string
+  addressLine2: string
+  postalCode: string
+  city: string
+  country: Country
+  displayName: string (readonly)
+  addressAsString: string (readonly)
+  displayNameInklMatrikkel: string (readonly)
+  knr: integer
+  gnr: integer
+  bnr: integer
+  fnr: integer
+  snr: integer
+  unitNumber: string
+
+=== Division ===
+  id: integer
+  version: integer
+  changes: array (readonly)
+  url: string (readonly)
+  displayName: string
+  name: string
+  startDate: string
+  endDate: string
+  organizationNumber: string
+  municipalityDate: string
+  municipality: Municipality
+
+=== IncomingInvoiceAggregateExternalWrite ===
+  version: integer
+  invoiceHeader: IncomingInvoiceHeaderExternalWrite
+  orderLines: array
+
+=== IncomingOrderLineExternalWrite ===
+  externalId: string
+  row: integer
+  description: string
+  accountId: integer
+  count: number
+  amountInclVat: number
+  vatTypeId: integer
+  departmentId: integer
+  projectId: integer
+  employeeId: integer
+  productId: integer
+  assetId: integer
+  customerId: integer
+  vendorId: integer
+  taxTransactionTypeId: integer
+  quantityAmount1: number
+  productUnitId1: integer
+  quantityAmount2: number
+  productUnitId2: integer
+  reInvoiceOnProject: boolean
+  budgetOrderLineId: integer
+  periodizationAccountId: integer
+  periodizationStartMonth: integer
+  periodizationStartYear: integer
+  periodizationPeriodsCount: integer
+  freeDimension1Id: integer
+  freeDimension2Id: integer
+  freeDimension3Id: integer
+
+=== IncomingInvoiceHeaderExternalWrite ===
+  vendorId: integer
+  invoiceDate: string
+  dueDate: string
+  currencyId: integer
+  invoiceAmount: number
+  description: string
+  invoiceNumber: string
+  voucherTypeId: integer
+  purchaseOrderId: integer
+

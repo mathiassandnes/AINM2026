@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data
+*.csv
+*.json
+!pyproject.toml
+*.parquet
+*.h5
+*.hdf5
+*.pkl
+*.pickle
+data/
+
+# Models (tracked via Git LFS instead)
+# *.pt *.pth *.onnx — see .gitattributes
+
+# Environment
+.env
+.env.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Submission archives (build artifacts, regenerable)
+submission_*.zip
+
+# Training runs (large, regenerable via training scripts)
+challenge2/runs/

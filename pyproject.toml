@@ -1,0 +1,49 @@
+[project]
+name = "nmiai-2026"
+version = "0.1.0"
+description = "NM i AI 2026 competition workspace"
+requires-python = ">=3.11"
+dependencies = [
+    # Core ML/AI
+    "numpy",
+    "pandas",
+    "scikit-learn",
+    "scipy",
+    # Deep Learning
+    "torch",
+    "torchvision",
+    "transformers",
+    # LLM / RAG / NLP
+    "anthropic",
+    "openai",
+    "tiktoken",
+    "sentence-transformers",
+    # Computer Vision
+    "opencv-python",
+    "Pillow",
+    # Data & Viz
+    "matplotlib",
+    "seaborn",
+    "jupyter",
+    # Utilities
+    "requests",
+    "tqdm",
+    "python-dotenv",
+    # Challenge 1: Tripletex Agent
+    "fastapi",
+    "uvicorn[standard]",
+    "httpx",
+    "lightgbm>=4.6.0",
+]
+
+[tool.setuptools]
+py-modules = []
+
+[project.optional-dependencies]
+extra = [
+    "faiss-cpu",
+    "chromadb",
+    "langchain",
+    "ultralytics",
+    "timm",
+]

@@ -1,0 +1,800 @@
+GET /accountantDashboard/news params=[from(query)|count(query)|sorting(query)|fields(query)]
+GET /accountantDashboard/news/tags params=[from(query)|count(query)|sorting(query)|fields(query)]
+GET /accountingOffice/reconciliations/{reconciliationId}/control params=[from(query)|count(query)|sorting(query)|fields(query)]
+PUT /accountingOffice/reconciliations/{reconciliationId}/control/:controlReconciliation
+PUT /accountingOffice/reconciliations/{reconciliationId}/control/:reconcile
+PUT /accountingOffice/reconciliations/{reconciliationId}/control/:requestControl
+GET /activity params=[id(query)|name(query)|number(query)|description(query)|isProjectActivity(query)|isGeneral(query)|isChargeable(query)|isTask(query)|isInactive(query)|from(query)|count(query)|sorting(query)|fields(query)]
+POST /activity body=Activity
+GET /activity/>forTimeSheet params=[projectId(query)|employeeId(query)|date(query)|filterExistingHours(query)|query(query)|from(query)|count(query)|sorting(query)|fields(query)]
+POST /activity/list
+GET /activity/{id} params=[fields(query)]
+GET /asset params=[id(query)|name(query)|description(query)|from(query)|count(query)|sorting(query)|fields(query)]
+POST /asset body=Asset
+GET /asset/assetsExist params=[fields(query)]
+GET /asset/balanceAccountsSum params=[fields(query)]
+GET /asset/canDelete/{id} params=[fields(query)]
+DELETE /asset/deleteImport
+DELETE /asset/deleteStartingBalance
+POST /asset/duplicate/{id}
+POST /asset/list
+POST /asset/upload params=[isPreview(query)|startDate(query)]
+GET /asset/{id} params=[fields(query)]
+PUT /asset/{id} body=Asset
+DELETE /asset/{id}
+GET /asset/{id}/postings params=[dateFrom(query)|dateToExclusive(query)|fields(query)|from(query)|count(query)|sorting(query)]
+PUT /attestation/:addApprover body=NewApproverBody
+GET /attestation/addApproverPermission params=[attestationObjectId(query)|attestationType(query)|fields(query)]
+GET /attestation/companyModules params=[fields(query)]
+POST /balance/reconciliation/annual/context body=AnnualBalanceContextRequest
+GET /balance/reconciliation/attachment/{attachmentId}/pdf
+GET /balance/reconciliation/{reconciliationId}/account/{accountId}/vouchers params=[fromDate(query)|toDateExclusive(query)|query(query)|fields(query)|from(query)|count(query)|sorting(query)]
+GET /balanceSheet params=[dateFrom(query)|dateTo(query)|accountNumberFrom(query)|accountNumberTo(query)|customerId(query)|employeeId(query)|departmentId(query)|projectId(query)|includeSubProjects(query)|includeActiveAccountsWithoutMovements(query)|from(query)|count(query)|sorting(query)|fields(query)]
+GET /bank params=[id(query)|registerNumbers(query)|isBankReconciliationSupport(query)|isAutoPaySupported(query)|isZtlSupported(query)|query(query)|from(query)|count(query)|sorting(query)|fields(query)]
+GET /bank/reconciliation params=[id(query)|accountingPeriodId(query)|accountId(query)|from(query)|count(query)|sorting(query)|fields(query)]
+POST /bank/reconciliation body=BankReconciliation
+GET /bank/reconciliation/>last params=[accountId(query)|fields(query)]
+GET /bank/reconciliation/>lastClosed params=[accountId(query)|after(query)|fields(query)]
+GET /bank/reconciliation/closedWithUnmatchedTransactions params=[accountId(query)|start(query)|fields(query)]
+GET /bank/reconciliation/match params=[id(query)|bankReconciliationId(query)|count(query)|approved(query)|from(query)|sorting(query)|fields(query)]
+POST /bank/reconciliation/match body=BankReconciliationMatch
+PUT /bank/reconciliation/match/:suggest params=[bankReconciliationId(query)]
+GET /bank/reconciliation/match/count params=[bankReconciliationId(query)|fields(query)]
+GET /bank/reconciliation/match/query params=[bankReconciliationId(query)|approved(query)|count(query)|from(query)|sorting(query)|fields(query)]
+GET /bank/reconciliation/match/{id} params=[fields(query)]
+PUT /bank/reconciliation/match/{id} body=BankReconciliationMatch
+DELETE /bank/reconciliation/match/{id}
+GET /bank/reconciliation/matches/counter params=[bankReconciliationId(query)|fields(query)]
+POST /bank/reconciliation/matches/counter params=[bankReconciliationId(query)]
+GET /bank/reconciliation/paymentType params=[id(query)|description(query)|from(query)|count(query)|sorting(query)|fields(query)]
+GET /bank/reconciliation/paymentType/{id} params=[fields(query)]
+GET /bank/reconciliation/settings params=[fields(query)]
+POST /bank/reconciliation/settings body=BankReconciliationSettings
+PUT /bank/reconciliation/settings/{id} body=BankReconciliationSettings
+PUT /bank/reconciliation/transactions/unmatched:csv params=[reconciliationId(query)]
+GET /bank/reconciliation/{id} params=[fields(query)]
+PUT /bank/reconciliation/{id} body=BankReconciliation
+DELETE /bank/reconciliation/{id}
+PUT /bank/reconciliation/{id}/:adjustment
+GET /bank/statement params=[id(query)|accountId(query)|fileFormats(query)|from(query)|count(query)|sorting(query)|fields(query)]
+POST /bank/statement/import params=[bankId(query)|accountId(query)|fromDate(query)|toDate(query)|externalId(query)|fileFormat(query)]
+GET /bank/statement/transaction params=[bankStatementId(query)|from(query)|count(query)|sorting(query)|fields(query)]
+GET /bank/statement/transaction/{id} params=[fields(query)]
+GET /bank/statement/transaction/{id}/details params=[fields(query)]
+GET /bank/statement/{id} params=[fields(query)]
+DELETE /bank/statement/{id}
+GET /bank/{id} params=[fields(query)]
+PUT /company body=Company
+GET /company/>withLoginAccess params=[from(query)|count(query)|sorting(query)|fields(query)]
+GET /company/divisions params=[from(query)|count(query)|sorting(query)|fields(query)]
+GET /company/salesmodules params=[from(query)|count(query)|sorting(query)|fields(query)]
+POST /company/salesmodules body=SalesModule
+GET /company/settings/altinn params=[fields(query)]
+PUT /company/settings/altinn body=AltinnCompanyModule
+GET /company/{id} params=[fields(query)]
+GET /contact params=[id(query)|firstName(query)|lastName(query)|email(query)|customerId(query)|departmentId(query)|from(query)|count(query)|sorting(query)|fields(query)]
+POST /contact body=Contact
+POST /contact/list
+DELETE /contact/list params=[ids(query)]
+GET /contact/{id} params=[fields(query)]
+PUT /contact/{id} body=Contact
+GET /country params=[id(query)|code(query)|isDisabled(query)|supportedInZtl(query)|from(query)|count(query)|sorting(query)|fields(query)]
+GET /country/{id} params=[fields(query)]
+GET /crm/prospect params=[name(query)|description(query)|createdDateFrom(query)|createdDateTo(query)|customerId(query)|salesEmployeeId(query)|isClosed(query)|closedReason(query)|closedDateFrom(query)|closedDateTo(query)|competitor(query)|prospectType(query)|projectId(query)|projectOfferId(query)|from(query)|count(query)|sorting(query)|fields(query)]
+GET /crm/prospect/{id} params=[fields(query)]
+GET /currency params=[id(query)|code(query)|from(query)|count(query)|sorting(query)|fields(query)]
+GET /currency/{fromCurrencyID}/exchangeRate params=[amount(query)|date(query)|fields(query)]
+GET /currency/{fromCurrencyID}/{toCurrencyID}/exchangeRate params=[amount(query)|date(query)|fields(query)]
+GET /currency/{id} params=[fields(query)]
+GET /currency/{id}/rate params=[date(query)|fields(query)]
+GET /customer params=[id(query)|customerAccountNumber(query)|organizationNumber(query)|email(query)|invoiceEmail(query)|customerName(query)|phoneNumberMobile(query)|isInactive(query)|accountManagerId(query)|changedSince(query)|from(query)|count(query)|sorting(query)|fields(query)]
+POST /customer body=Customer
+GET /customer/category params=[id(query)|name(query)|number(query)|description(query)|type(query)|from(query)|count(query)|sorting(query)|fields(query)]
+POST /customer/category body=CustomerCategory
+GET /customer/category/{id} params=[fields(query)]
+PUT /customer/category/{id} body=CustomerCategory
+PUT /customer/list
+POST /customer/list
+GET /customer/{id} params=[fields(query)]
+PUT /customer/{id} body=Customer
+DELETE /customer/{id}
+GET /deliveryAddress params=[id(query)|addressLine1(query)|addressLine2(query)|postalCode(query)|city(query)|name(query)|from(query)|count(query)|sorting(query)|fields(query)]
+GET /deliveryAddress/{id} params=[fields(query)]
+PUT /deliveryAddress/{id} body=DeliveryAddress
+GET /department params=[id(query)|name(query)|departmentNumber(query)|departmentManagerId(query)|isInactive(query)|from(query)|count(query)|sorting(query)|fields(query)]
+POST /department body=Department
+PUT /department/list
+POST /department/list
+GET /department/query params=[id(query)|query(query)|count(query)|fields(query)|isInactive(query)|from(query)|sorting(query)]
+GET /department/{id} params=[fields(query)]
+PUT /department/{id} body=Department
+DELETE /department/{id}
+GET /division params=[query(query)|from(query)|count(query)|sorting(query)|fields(query)]
+POST /division body=Division
+PUT /division/list
+POST /division/list
+PUT /division/{id} body=Division
+GET /document/{id} params=[fields(query)]
+GET /document/{id}/content params=[download(query)]
+GET /documentArchive/account/{id} params=[periodDateFrom(query)|periodDateTo(query)|from(query)|count(query)|sorting(query)|fields(query)]
+POST /documentArchive/account/{id}
+GET /documentArchive/customer/{id} params=[periodDateFrom(query)|periodDateTo(query)|from(query)|count(query)|sorting(query)|fields(query)]
+POST /documentArchive/customer/{id}
+GET /documentArchive/dynamicControlForm/{id} params=[periodDateFrom(query)|periodDateTo(query)|from(query)|count(query)|sorting(query)|fields(query)]
+POST /documentArchive/dynamicControlForm/{id}
+GET /documentArchive/employee/{id} params=[periodDateFrom(query)|periodDateTo(query)|from(query)|count(query)|sorting(query)|fields(query)]
+POST /documentArchive/employee/{id}
+GET /documentArchive/product/{id} params=[periodDateFrom(query)|periodDateTo(query)|from(query)|count(query)|sorting(query)|fields(query)]
+POST /documentArchive/product/{id}
+GET /documentArchive/project/{id} params=[periodDateFrom(query)|periodDateTo(query)|from(query)|count(query)|sorting(query)|fields(query)]
+POST /documentArchive/project/{id}
+POST /documentArchive/reception
+GET /documentArchive/supplier/{id} params=[periodDateFrom(query)|periodDateTo(query)|from(query)|count(query)|sorting(query)|fields(query)]
+POST /documentArchive/supplier/{id}
+PUT /documentArchive/{id} body=DocumentArchive
+DELETE /documentArchive/{id}
+GET /employee params=[id(query)|firstName(query)|lastName(query)|employeeNumber(query)|email(query)|allowInformationRegistration(query)|includeContacts(query)|departmentId(query)|onlyProjectManagers(query)|onlyContacts(query)|assignableProjectManagers(query)|periodStart(query)|periodEnd(query)|hasSystemAccess(query)|onlyEmployeeTokens(query)|from(query)|count(query)|sorting(query)|fields(query)]
+POST /employee body=Employee
+GET /employee/category params=[id(query)|name(query)|number(query)|query(query)|from(query)|count(query)|sorting(query)|fields(query)]
+POST /employee/category body=EmployeeCategory
+PUT /employee/category/list
+POST /employee/category/list
+DELETE /employee/category/list params=[ids(query)]
+GET /employee/category/{id} params=[fields(query)]
+PUT /employee/category/{id} body=EmployeeCategory
+DELETE /employee/category/{id}
+GET /employee/employment params=[employeeId(query)|from(query)|count(query)|sorting(query)|fields(query)]
+POST /employee/employment body=Employment
+GET /employee/employment/details params=[employmentId(query)|from(query)|count(query)|sorting(query)|fields(query)]
+POST /employee/employment/details body=EmploymentDetails
+GET /employee/employment/details/{id} params=[fields(query)]
+PUT /employee/employment/details/{id} body=EmploymentDetails
+GET /employee/employment/employmentType params=[from(query)|count(query)|sorting(query)|fields(query)]
+GET /employee/employment/employmentType/employmentEndReasonType params=[from(query)|count(query)|sorting(query)|fields(query)]
+GET /employee/employment/employmentType/employmentFormType params=[from(query)|count(query)|sorting(query)|fields(query)]
+GET /employee/employment/employmentType/maritimeEmploymentType params=[type(query)|from(query)|count(query)|sorting(query)|fields(query)]
+GET /employee/employment/employmentType/salaryType params=[from(query)|count(query)|sorting(query)|fields(query)]
+GET /employee/employment/employmentType/scheduleType params=[from(query)|count(query)|sorting(query)|fields(query)]
+GET /employee/employment/leaveOfAbsence params=[employmentIds(query)|date(query)|minPercentage(query)|maxPercentage(query)|from(query)|count(query)|sorting(query)|fields(query)]
+POST /employee/employment/leaveOfAbsence body=LeaveOfAbsence
+POST /employee/employment/leaveOfAbsence/list
+GET /employee/employment/leaveOfAbsence/{id} params=[fields(query)]
+PUT /employee/employment/leaveOfAbsence/{id} body=LeaveOfAbsence
+GET /employee/employment/leaveOfAbsenceType params=[from(query)|count(query)|sorting(query)|fields(query)]
+GET /employee/employment/occupationCode params=[id(query)|nameNO(query)|code(query)|from(query)|count(query)|sorting(query)|fields(query)]
+GET /employee/employment/occupationCode/{id} params=[fields(query)]
+GET /employee/employment/remunerationType params=[from(query)|count(query)|sorting(query)|fields(query)]
+GET /employee/employment/workingHoursScheme params=[from(query)|count(query)|sorting(query)|fields(query)]
+GET /employee/employment/{id} params=[fields(query)]
+PUT /employee/employment/{id} body=Employment
+GET /employee/entitlement params=[employeeId(query)|from(query)|count(query)|sorting(query)|fields(query)]
+PUT /employee/entitlement/:grantClientEntitlementsByTemplate params=[employeeId(query)|customerId(query)|template(query)|addToExisting(query)]
+PUT /employee/entitlement/:grantEntitlementsByTemplate params=[employeeId(query)|template(query)]
+GET /employee/entitlement/client params=[employeeId(query)|customerId(query)|from(query)|count(query)|sorting(query)|fields(query)]
+GET /employee/entitlement/{id} params=[fields(query)]
+GET /employee/hourlyCostAndRate params=[employeeId(query)|from(query)|count(query)|sorting(query)|fields(query)]
+POST /employee/hourlyCostAndRate body=HourlyCostAndRate
+GET /employee/hourlyCostAndRate/{id} params=[fields(query)]
+PUT /employee/hourlyCostAndRate/{id} body=HourlyCostAndRate
+POST /employee/list
+GET /employee/nextOfKin params=[employeeId(query)|from(query)|count(query)|sorting(query)|fields(query)]
+POST /employee/nextOfKin body=NextOfKin
+GET /employee/nextOfKin/{id} params=[fields(query)]
+PUT /employee/nextOfKin/{id} body=NextOfKin
+GET /employee/preferences params=[id(query)|employeeId(query)|fields(query)]
+PUT /employee/preferences/:changeLanguage params=[language(query)]
+GET /employee/preferences/>loggedInEmployeePreferences params=[fields(query)]
+PUT /employee/preferences/list
+PUT /employee/preferences/{id} body=EmployeePreferences
+GET /employee/searchForEmployeesAndContacts params=[id(query)|firstName(query)|lastName(query)|email(query)|includeContacts(query)|isInactive(query)|hasSystemAccess(query)|excludeReadOnly(query)|fields(query)|from(query)|count(query)|sorting(query)]
+GET /employee/standardTime params=[employeeId(query)|from(query)|count(query)|sorting(query)|fields(query)]
+POST /employee/standardTime body=StandardTime
+GET /employee/standardTime/byDate params=[employeeId(query)|date(query)|fields(query)]
+GET /employee/standardTime/{id} params=[fields(query)]
+PUT /employee/standardTime/{id} body=StandardTime
+GET /employee/{id} params=[fields(query)]
+PUT /employee/{id} body=Employee
+GET /event params=[fields(query)]
+GET /event/subscription params=[from(query)|count(query)|sorting(query)|fields(query)]
+POST /event/subscription body=Subscription
+PUT /event/subscription/list
+POST /event/subscription/list
+DELETE /event/subscription/list params=[ids(query)]
+GET /event/subscription/{id} params=[fields(query)]
+PUT /event/subscription/{id} body=Subscription
+DELETE /event/subscription/{id}
+GET /event/{eventType} params=[fields(query)]
+POST /incomingInvoice params=[sendTo(query)] body=IncomingInvoiceAggregateExternalWrite
+GET /incomingInvoice/search params=[voucherId(query)|invoiceDateFrom(query)|invoiceDateTo(query)|invoiceNumber(query)|vendorId(query)|status(query)|from(query)|count(query)|sorting(query)|fields(query)]
+GET /incomingInvoice/{voucherId} params=[fields(query)]
+PUT /incomingInvoice/{voucherId} params=[sendTo(query)] body=IncomingInvoiceAggregateExternalWrite
+POST /incomingInvoice/{voucherId}/addPayment body=IncomingInvoicePaymentExternalWrite
+GET /internal/debtCollector params=[fields(query)]
+DELETE /internal/debtCollector/deactivate
+PUT /internal/nhoAdmin/:abort
+GET /inventory params=[id(query)|name(query)|isMainInventory(query)|isInactive(query)|query(query)|from(query)|count(query)|sorting(query)|fields(query)]
+POST /inventory body=Inventory
+GET /inventory/inventories params=[dateFrom(query)|dateTo(query)|productId(query)|inventoryId(query)|onlyProductWithChangedStatus(query)|from(query)|count(query)|sorting(query)|fields(query)]
+GET /inventory/location params=[warehouseId(query)|isInactive(query)|name(query)|from(query)|count(query)|sorting(query)|fields(query)]
+POST /inventory/location body=InventoryLocation
+PUT /inventory/location/list
+POST /inventory/location/list
+DELETE /inventory/location/list params=[ids(query)]
+GET /inventory/location/{id} params=[fields(query)]
+PUT /inventory/location/{id} body=InventoryLocation
+DELETE /inventory/location/{id}
+GET /inventory/stocktaking params=[id(query)|isCompleted(query)|inventoryId(query)|from(query)|count(query)|sorting(query)|fields(query)]
+POST /inventory/stocktaking params=[typeOfStocktaking(query)] body=Stocktaking
+GET /inventory/stocktaking/productline params=[stocktakingId(query)|query(query)|productGroupIds(query)|locationIds(query)|productLineStatus(query)|count(query)|from(query)|sorting(query)|fields(query)]
+POST /inventory/stocktaking/productline body=ProductLine
+GET /inventory/stocktaking/productline/{id} params=[fields(query)]
+PUT /inventory/stocktaking/productline/{id} body=ProductLine
+DELETE /inventory/stocktaking/productline/{id}
+PUT /inventory/stocktaking/productline/{id}/:changeLocation params=[warehouseLocationId(query)]
+GET /inventory/stocktaking/{id} params=[fields(query)]
+PUT /inventory/stocktaking/{id} body=Stocktaking
+DELETE /inventory/stocktaking/{id}
+GET /inventory/{id} params=[fields(query)]
+PUT /inventory/{id} body=Inventory
+DELETE /inventory/{id}
+GET /invoice params=[id(query)|invoiceDateFrom(query)|invoiceDateTo(query)|invoiceNumber(query)|kid(query)|voucherId(query)|customerId(query)|from(query)|count(query)|sorting(query)|fields(query)]
+POST /invoice params=[sendToCustomer(query)|paymentTypeId(query)|paidAmount(query)] body=Invoice
+GET /invoice/details params=[id(query)|invoiceDateFrom(query)|invoiceDateTo(query)|from(query)|count(query)|sorting(query)|fields(query)]
+GET /invoice/details/{id} params=[fields(query)]
+POST /invoice/list params=[sendToCustomer(query)|fields(query)]
+GET /invoice/paymentType params=[id(query)|description(query)|query(query)|from(query)|count(query)|sorting(query)|fields(query)]
+GET /invoice/paymentType/{id} params=[fields(query)]
+GET /invoice/{id} params=[fields(query)]
+PUT /invoice/{id}/:createCreditNote params=[date(query)|comment(query)|creditNoteEmail(query)|sendToCustomer(query)|sendType(query)]
+PUT /invoice/{id}/:createReminder params=[type(query)|date(query)|includeCharge(query)|includeInterest(query)|dispatchType(query)|dispatchTypes(query)|smsNumber(query)|email(query)|address(query)|postalCode(query)|city(query)]
+PUT /invoice/{id}/:payment params=[paymentDate(query)|paymentTypeId(query)|paidAmount(query)|paidAmountCurrency(query)]
+PUT /invoice/{id}/:send params=[sendType(query)|overrideEmailAddress(query)]
+GET /invoice/{invoiceId}/pdf params=[download(query)]
+GET /invoiceRemark/{id} params=[fields(query)]
+GET /ledger params=[dateFrom(query)|dateTo(query)|openPostings(query)|accountId(query)|supplierId(query)|customerId(query)|employeeId(query)|departmentId(query)|projectId(query)|productId(query)|accountingDimensionValue1Id(query)|accountingDimensionValue2Id(query)|accountingDimensionValue3Id(query)|from(query)|count(query)|sorting(query)|fields(query)]
+GET /ledger/account params=[id(query)|number(query)|isBankAccount(query)|isInactive(query)|isApplicableForSupplierInvoice(query)|ledgerType(query)|isBalanceAccount(query)|saftCode(query)|from(query)|count(query)|sorting(query)|fields(query)]
+POST /ledger/account body=Account
+PUT /ledger/account/list
+POST /ledger/account/list
+DELETE /ledger/account/list params=[ids(query)]
+GET /ledger/account/{id} params=[fields(query)]
+PUT /ledger/account/{id} body=Account
+DELETE /ledger/account/{id}
+GET /ledger/accountingDimensionName params=[activeOnly(query)|fields(query)|from(query)|count(query)|sorting(query)]
+POST /ledger/accountingDimensionName body=AccountingDimensionName
+GET /ledger/accountingDimensionName/search params=[dimensionIndex(query)|activeOnly(query)|onlyDimensionsWithActiveValues(query)|fields(query)|from(query)|count(query)|sorting(query)]
+GET /ledger/accountingDimensionName/{id} params=[fields(query)]
+PUT /ledger/accountingDimensionName/{id} body=AccountingDimensionName
+DELETE /ledger/accountingDimensionName/{id}
+POST /ledger/accountingDimensionValue body=AccountingDimensionValue
+PUT /ledger/accountingDimensionValue/list
+GET /ledger/accountingDimensionValue/search params=[dimensionIndex(query)|activeOnly(query)|showInVoucherRegistration(query)|fields(query)|from(query)|count(query)|sorting(query)]
+GET /ledger/accountingDimensionValue/{id} params=[fields(query)]
+DELETE /ledger/accountingDimensionValue/{id}
+GET /ledger/accountingPeriod params=[id(query)|numberFrom(query)|numberTo(query)|startFrom(query)|startTo(query)|endFrom(query)|endTo(query)|count(query)|from(query)|sorting(query)|fields(query)]
+GET /ledger/accountingPeriod/{id} params=[fields(query)]
+GET /ledger/annualAccount params=[id(query)|yearFrom(query)|yearTo(query)|from(query)|count(query)|sorting(query)|fields(query)]
+GET /ledger/annualAccount/{id} params=[fields(query)]
+GET /ledger/closeGroup params=[id(query)|dateFrom(query)|dateTo(query)|from(query)|count(query)|sorting(query)|fields(query)]
+GET /ledger/closeGroup/{id} params=[fields(query)]
+GET /ledger/openPost params=[date(query)|accountId(query)|supplierId(query)|customerId(query)|employeeId(query)|departmentId(query)|projectId(query)|productId(query)|accountingDimensionValue1Id(query)|accountingDimensionValue2Id(query)|accountingDimensionValue3Id(query)|from(query)|count(query)|sorting(query)|fields(query)]
+GET /ledger/paymentTypeOut params=[id(query)|description(query)|isInactive(query)|from(query)|count(query)|sorting(query)|fields(query)]
+POST /ledger/paymentTypeOut body=PaymentTypeOut
+PUT /ledger/paymentTypeOut/list
+POST /ledger/paymentTypeOut/list
+GET /ledger/paymentTypeOut/{id} params=[fields(query)]
+PUT /ledger/paymentTypeOut/{id} body=PaymentTypeOut
+DELETE /ledger/paymentTypeOut/{id}
+GET /ledger/posting params=[dateFrom(query)|dateTo(query)|openPostings(query)|accountId(query)|supplierId(query)|customerId(query)|employeeId(query)|departmentId(query)|projectId(query)|productId(query)|accountNumberFrom(query)|accountNumberTo(query)|type(query)|accountingDimensionValue1Id(query)|accountingDimensionValue2Id(query)|accountingDimensionValue3Id(query)|from(query)|count(query)|sorting(query)|fields(query)]
+PUT /ledger/posting/:closePostings
+GET /ledger/posting/openPost params=[date(query)|accountId(query)|supplierId(query)|customerId(query)|employeeId(query)|departmentId(query)|projectId(query)|productId(query)|accountNumberFrom(query)|accountNumberTo(query)|accountingDimensionValue1Id(query)|accountingDimensionValue2Id(query)|accountingDimensionValue3Id(query)|from(query)|count(query)|sorting(query)|fields(query)]
+GET /ledger/posting/{id} params=[fields(query)]
+GET /ledger/postingByDate params=[dateFrom(query)|dateTo(query)|from(query)|count(query)|sorting(query)|fields(query)]
+GET /ledger/postingRules params=[fields(query)]
+GET /ledger/vatSettings params=[fields(query)]
+PUT /ledger/vatSettings body=VatSettings
+GET /ledger/vatType params=[id(query)|number(query)|typeOfVat(query)|vatDate(query)|shouldIncludeSpecificationTypes(query)|from(query)|count(query)|sorting(query)|fields(query)]
+PUT /ledger/vatType/createRelativeVatType params=[name(query)|vatTypeId(query)|percentage(query)]
+GET /ledger/vatType/{id} params=[fields(query)]
+GET /ledger/voucher params=[id(query)|number(query)|numberFrom(query)|numberTo(query)|typeId(query)|dateFrom(query)|dateTo(query)|from(query)|count(query)|sorting(query)|fields(query)]
+POST /ledger/voucher params=[sendToLedger(query)] body=Voucher
+GET /ledger/voucher/>externalVoucherNumber params=[externalVoucherNumber(query)|from(query)|count(query)|sorting(query)|fields(query)]
+GET /ledger/voucher/>nonPosted params=[dateFrom(query)|dateTo(query)|includeNonApproved(query)|changedSince(query)|from(query)|count(query)|sorting(query)|fields(query)]
+GET /ledger/voucher/>voucherReception params=[dateFrom(query)|dateTo(query)|searchText(query)|from(query)|count(query)|sorting(query)|fields(query)]
+PUT /ledger/voucher/historical/:closePostings params=[postingIds(query)]
+PUT /ledger/voucher/historical/:reverseHistoricalVouchers
+POST /ledger/voucher/historical/employee body=Employee
+POST /ledger/voucher/historical/historical params=[comment(query)|useCustomNumberSeries(query)]
+POST /ledger/voucher/historical/{voucherId}/attachment
+POST /ledger/voucher/importDocument params=[split(query)]
+POST /ledger/voucher/importGbat10
+PUT /ledger/voucher/list params=[sendToLedger(query)]
+GET /ledger/voucher/openingBalance params=[fields(query)]
+POST /ledger/voucher/openingBalance params=[fields(query)] body=OpeningBalance
+DELETE /ledger/voucher/openingBalance
+GET /ledger/voucher/openingBalance/>correctionVoucher params=[fields(query)]
+GET /ledger/voucher/{id} params=[fields(query)]
+PUT /ledger/voucher/{id} params=[sendToLedger(query)] body=Voucher
+DELETE /ledger/voucher/{id}
+PUT /ledger/voucher/{id}/:reverse params=[date(query)]
+PUT /ledger/voucher/{id}/:sendToInbox params=[version(query)|comment(query)]
+PUT /ledger/voucher/{id}/:sendToLedger params=[version(query)|number(query)]
+GET /ledger/voucher/{id}/options params=[fields(query)]
+POST /ledger/voucher/{voucherId}/attachment
+DELETE /ledger/voucher/{voucherId}/attachment params=[version(query)|sendToInbox(query)|split(query)]
+GET /ledger/voucher/{voucherId}/pdf
+POST /ledger/voucher/{voucherId}/pdf/{fileName}
+GET /ledger/voucherType params=[name(query)|from(query)|count(query)|sorting(query)|fields(query)]
+GET /ledger/voucherType/{id} params=[fields(query)]
+GET /municipality params=[includePayrollTaxZones(query)|from(query)|count(query)|sorting(query)|fields(query)]
+GET /municipality/query params=[id(query)|query(query)|fields(query)|count(query)|from(query)|sorting(query)]
+GET /order params=[id(query)|number(query)|customerId(query)|orderDateFrom(query)|orderDateTo(query)|deliveryComment(query)|isClosed(query)|isSubscription(query)|from(query)|count(query)|sorting(query)|fields(query)]
+POST /order body=Order
+PUT /order/:invoiceMultipleOrders params=[id(query)|invoiceDate(query)|sendToCustomer(query)|createBackorders(query)]
+POST /order/list
+GET /order/orderConfirmation/{orderId}/pdf params=[download(query)]
+GET /order/orderGroup params=[ids(query)|orderIds(query)|from(query)|count(query)|sorting(query)|fields(query)]
+PUT /order/orderGroup params=[OrderLineIds(query)|removeExistingOrderLines(query)] body=OrderGroup
+POST /order/orderGroup params=[orderLineIds(query)] body=OrderGroup
+GET /order/orderGroup/{id} params=[fields(query)]
+DELETE /order/orderGroup/{id}
+POST /order/orderline body=OrderLine
+POST /order/orderline/list
+GET /order/orderline/orderLineTemplate params=[orderId(query)|productId(query)|fields(query)]
+GET /order/orderline/{id} params=[fields(query)]
+PUT /order/orderline/{id} body=OrderLine
+DELETE /order/orderline/{id}
+PUT /order/orderline/{id}/:pickLine params=[inventoryId(query)|inventoryLocationId(query)|pickDate(query)]
+PUT /order/orderline/{id}/:unpickLine
+GET /order/packingNote/{orderId}/pdf params=[type(query)|download(query)]
+PUT /order/sendInvoicePreview/{orderId} params=[email(query)|message(query)|saveAsDefault(query)]
+PUT /order/sendOrderConfirmation/{orderId} params=[email(query)|message(query)|saveAsDefault(query)]
+PUT /order/sendPackingNote/{orderId} params=[email(query)|message(query)|saveAsDefault(query)|type(query)]
+GET /order/{id} params=[fields(query)]
+PUT /order/{id} params=[updateLinesAndGroups(query)] body=Order
+DELETE /order/{id}
+PUT /order/{id}/:approveSubscriptionInvoice params=[invoiceDate(query)]
+PUT /order/{id}/:attach
+PUT /order/{id}/:invoice params=[invoiceDate(query)|sendToCustomer(query)|sendType(query)|paymentTypeId(query)|paidAmount(query)|paidAmountAccountCurrency(query)|paymentTypeIdRestAmount(query)|paidAmountAccountCurrencyRest(query)|createOnAccount(query)|amountOnAccount(query)|onAccountComment(query)|createBackorder(query)|invoiceIdIfIsCreditNote(query)|overrideEmailAddress(query)]
+PUT /order/{id}/:unApproveSubscriptionInvoice
+GET /pension params=[query(query)|startDate(query)|from(query)|count(query)|sorting(query)|fields(query)]
+GET /pickupPoint params=[supplierId(query)|transportTypeId(query)|code(query)|name(query)|from(query)|count(query)|sorting(query)|fields(query)]
+GET /pickupPoint/{id} params=[fields(query)]
+GET /platformAgnostic/bank/onboarding/fetchOdpCustomerId params=[companyId(query)]
+GET /product params=[number(query)|ids(query)|productNumber(query)|name(query)|ean(query)|isInactive(query)|isStockItem(query)|isSupplierProduct(query)|supplierId(query)|currencyId(query)|vatTypeId(query)|productUnitId(query)|departmentId(query)|accountId(query)|costExcludingVatCurrencyFrom(query)|costExcludingVatCurrencyTo(query)|priceExcludingVatCurrencyFrom(query)|priceExcludingVatCurrencyTo(query)|priceIncludingVatCurrencyFrom(query)|priceIncludingVatCurrencyTo(query)|from(query)|count(query)|sorting(query)|fields(query)]
+POST /product body=Product
+GET /product/discountGroup params=[id(query)|name(query)|number(query)|from(query)|count(query)|sorting(query)|fields(query)]
+GET /product/discountGroup/{id} params=[fields(query)]
+GET /product/external params=[name(query)|wholesaler(query)|organizationNumber(query)|elNumber(query)|nrfNumber(query)|isInactive(query)|from(query)|count(query)|sorting(query)|fields(query)]
+GET /product/external/{id} params=[fields(query)]
+GET /product/group params=[id(query)|name(query)|query(query)|from(query)|count(query)|sorting(query)|fields(query)]
+POST /product/group body=ProductGroup
+PUT /product/group/list
+POST /product/group/list
+DELETE /product/group/list params=[ids(query)]
+GET /product/group/query params=[query(query)|name(query)|fields(query)|count(query)|from(query)|sorting(query)]
+GET /product/group/{id} params=[fields(query)]
+PUT /product/group/{id} body=ProductGroup
+DELETE /product/group/{id}
+GET /product/groupRelation params=[id(query)|productId(query)|productGroupId(query)|from(query)|count(query)|sorting(query)|fields(query)]
+POST /product/groupRelation body=ProductGroupRelation
+POST /product/groupRelation/list
+DELETE /product/groupRelation/list
+GET /product/groupRelation/{id} params=[fields(query)]
+DELETE /product/groupRelation/{id}
+GET /product/inventoryLocation params=[productId(query)|inventoryId(query)|isMainLocation(query)|from(query)|count(query)|sorting(query)|fields(query)]
+POST /product/inventoryLocation body=ProductInventoryLocation
+PUT /product/inventoryLocation/list
+POST /product/inventoryLocation/list
+GET /product/inventoryLocation/{id} params=[fields(query)]
+PUT /product/inventoryLocation/{id} body=ProductInventoryLocation
+DELETE /product/inventoryLocation/{id}
+PUT /product/list
+POST /product/list
+GET /product/logisticsSettings params=[fields(query)]
+PUT /product/logisticsSettings body=LogisticsSettings
+GET /product/productPrice params=[productId(query)|fromDate(query)|toDate(query)|showOnlyLastPrice(query)|from(query)|count(query)|sorting(query)|fields(query)]
+GET /product/supplierProduct params=[productId(query)|resaleIds(query)|vendorId(query)|query(query)|isInactive(query)|productGroupId(query)|count(query)|fields(query)|targetCurrencyId(query)|from(query)|sorting(query)]
+POST /product/supplierProduct body=SupplierProduct
+POST /product/supplierProduct/getSupplierProductsByIds
+PUT /product/supplierProduct/list
+POST /product/supplierProduct/list
+GET /product/supplierProduct/{id} params=[fields(query)]
+PUT /product/supplierProduct/{id} body=SupplierProduct
+DELETE /product/supplierProduct/{id}
+GET /product/unit params=[id(query)|name(query)|nameShort(query)|commonCode(query)|from(query)|count(query)|sorting(query)|fields(query)]
+POST /product/unit body=ProductUnit
+PUT /product/unit/list
+POST /product/unit/list
+GET /product/unit/master params=[id(query)|name(query)|nameShort(query)|commonCode(query)|peppolName(query)|peppolSymbol(query)|isInactive(query)|count(query)|from(query)|sorting(query)|fields(query)]
+GET /product/unit/master/{id} params=[fields(query)]
+GET /product/unit/query params=[query(query)|count(query)|fields(query)|from(query)|sorting(query)]
+GET /product/unit/{id} params=[fields(query)]
+PUT /product/unit/{id} body=ProductUnit
+DELETE /product/unit/{id}
+GET /product/{id} params=[fields(query)]
+PUT /product/{id} body=Product
+DELETE /product/{id}
+POST /product/{id}/image
+DELETE /product/{id}/image
+GET /project params=[id(query)|name(query)|number(query)|isOffer(query)|projectManagerId(query)|customerAccountManagerId(query)|employeeInProjectId(query)|departmentId(query)|startDateFrom(query)|startDateTo(query)|endDateFrom(query)|endDateTo(query)|isClosed(query)|isFixedPrice(query)|customerId(query)|externalAccountsNumber(query)|includeRecentlyClosed(query)|from(query)|count(query)|sorting(query)|fields(query)]
+POST /project body=Project
+DELETE /project
+GET /project/>forTimeSheet params=[includeProjectOffers(query)|employeeId(query)|date(query)|from(query)|count(query)|sorting(query)|fields(query)]
+GET /project/batchPeriod/budgetStatusByProjectIds params=[ids(query)|from(query)|count(query)|sorting(query)|fields(query)]
+GET /project/batchPeriod/invoicingReserveByProjectIds params=[ids(query)|dateFrom(query)|dateTo(query)|from(query)|count(query)|sorting(query)|fields(query)]
+GET /project/category params=[id(query)|name(query)|number(query)|description(query)|from(query)|count(query)|sorting(query)|fields(query)]
+POST /project/category body=ProjectCategory
+GET /project/category/{id} params=[fields(query)]
+PUT /project/category/{id} body=ProjectCategory
+GET /project/controlForm params=[projectId(query)|from(query)|count(query)|sorting(query)|fields(query)]
+GET /project/controlForm/{id} params=[fields(query)]
+GET /project/controlFormType params=[from(query)|count(query)|sorting(query)|fields(query)]
+GET /project/controlFormType/{id} params=[fields(query)]
+PUT /project/dynamicControlForm/{id}/:copyFieldValuesFromLastEditedForm
+GET /project/hourlyRates params=[id(query)|projectId(query)|type(query)|startDateFrom(query)|startDateTo(query)|showInProjectOrder(query)|from(query)|count(query)|sorting(query)|fields(query)]
+POST /project/hourlyRates body=ProjectHourlyRate
+DELETE /project/hourlyRates/deleteByProjectIds params=[ids(query)|date(query)]
+PUT /project/hourlyRates/list
+POST /project/hourlyRates/list
+DELETE /project/hourlyRates/list params=[ids(query)]
+GET /project/hourlyRates/projectSpecificRates params=[id(query)|projectHourlyRateId(query)|employeeId(query)|activityId(query)|from(query)|count(query)|sorting(query)|fields(query)]
+POST /project/hourlyRates/projectSpecificRates body=ProjectSpecificRate
+PUT /project/hourlyRates/projectSpecificRates/list
+POST /project/hourlyRates/projectSpecificRates/list
+DELETE /project/hourlyRates/projectSpecificRates/list params=[ids(query)]
+GET /project/hourlyRates/projectSpecificRates/{id} params=[fields(query)]
+PUT /project/hourlyRates/projectSpecificRates/{id} body=ProjectSpecificRate
+DELETE /project/hourlyRates/projectSpecificRates/{id}
+PUT /project/hourlyRates/updateOrAddHourRates params=[ids(query)] body=HourlyRate
+GET /project/hourlyRates/{id} params=[fields(query)]
+PUT /project/hourlyRates/{id} body=ProjectHourlyRate
+DELETE /project/hourlyRates/{id}
+POST /project/import params=[fileFormat(query)|encoding(query)|delimiter(query)|ignoreFirstRow(query)]
+PUT /project/list
+POST /project/list
+DELETE /project/list params=[ids(query)]
+GET /project/number/{number} params=[fields(query)]
+GET /project/orderline params=[projectId(query)|isBudget(query)|from(query)|count(query)|sorting(query)|fields(query)]
+POST /project/orderline body=ProjectOrderLine
+POST /project/orderline/list
+GET /project/orderline/orderLineTemplate params=[projectId(query)|productId(query)|fields(query)]
+GET /project/orderline/query params=[id(query)|projectId(query)|query(query)|isBudget(query)|from(query)|count(query)|sorting(query)|fields(query)]
+GET /project/orderline/{id} params=[fields(query)]
+PUT /project/orderline/{id} body=ProjectOrderLine
+DELETE /project/orderline/{id}
+POST /project/participant body=ProjectParticipant
+POST /project/participant/list
+DELETE /project/participant/list params=[ids(query)]
+GET /project/participant/{id} params=[fields(query)]
+PUT /project/participant/{id} body=ProjectParticipant
+POST /project/projectActivity body=ProjectActivity
+DELETE /project/projectActivity/list params=[ids(query)]
+GET /project/projectActivity/{id} params=[fields(query)]
+DELETE /project/projectActivity/{id}
+GET /project/resourcePlanBudget params=[projectId(query)|periodStart(query)|periodEnd(query)|periodType(query)|fields(query)]
+GET /project/settings params=[useNkode(query)|fields(query)]
+PUT /project/settings body=ProjectSettings
+GET /project/subcontract params=[projectId(query)|from(query)|count(query)|sorting(query)|fields(query)]
+POST /project/subcontract body=ProjectSubContract
+GET /project/subcontract/query params=[id(query)|projectId(query)|query(query)|from(query)|count(query)|sorting(query)|fields(query)]
+GET /project/subcontract/{id} params=[fields(query)]
+PUT /project/subcontract/{id} body=ProjectSubContract
+DELETE /project/subcontract/{id}
+GET /project/task params=[projectId(query)|from(query)|count(query)|sorting(query)|fields(query)]
+GET /project/template/{id} params=[fields(query)]
+GET /project/{id} params=[fields(query)]
+PUT /project/{id} body=Project
+DELETE /project/{id}
+GET /project/{id}/period/budgetStatus params=[fields(query)]
+GET /project/{id}/period/hourlistReport params=[dateFrom(query)|dateTo(query)|fields(query)]
+GET /project/{id}/period/invoiced params=[dateFrom(query)|dateTo(query)|fields(query)]
+GET /project/{id}/period/invoicingReserve params=[dateFrom(query)|dateTo(query)|fields(query)]
+GET /project/{id}/period/monthlyStatus params=[dateFrom(query)|dateTo(query)|from(query)|count(query)|sorting(query)|fields(query)]
+GET /project/{id}/period/overallStatus params=[dateFrom(query)|dateTo(query)|fields(query)]
+GET /purchaseOrder params=[number(query)|deliveryDateFrom(query)|deliveryDateTo(query)|creationDateFrom(query)|creationDateTo(query)|id(query)|supplierId(query)|projectId(query)|isClosed(query)|withDeviationOnly(query)|from(query)|count(query)|sorting(query)|fields(query)]
+POST /purchaseOrder body=PurchaseOrder
+GET /purchaseOrder/deviation params=[purchaseOrderId(query)|from(query)|count(query)|sorting(query)|fields(query)]
+POST /purchaseOrder/deviation body=Deviation
+PUT /purchaseOrder/deviation/list
+POST /purchaseOrder/deviation/list
+GET /purchaseOrder/deviation/{id} params=[fields(query)]
+PUT /purchaseOrder/deviation/{id} body=Deviation
+DELETE /purchaseOrder/deviation/{id}
+PUT /purchaseOrder/deviation/{id}/:approve
+PUT /purchaseOrder/deviation/{id}/:deliver
+PUT /purchaseOrder/deviation/{id}/:undeliver
+GET /purchaseOrder/goodsReceipt params=[receivedDateFrom(query)|receivedDateTo(query)|status(query)|withoutPurchase(query)|from(query)|count(query)|sorting(query)|fields(query)]
+POST /purchaseOrder/goodsReceipt params=[fields(query)] body=GoodsReceipt
+POST /purchaseOrder/goodsReceipt/list params=[fields(query)]
+DELETE /purchaseOrder/goodsReceipt/list params=[ids(query)]
+GET /purchaseOrder/goodsReceipt/{id} params=[fields(query)]
+PUT /purchaseOrder/goodsReceipt/{id} params=[fields(query)] body=GoodsReceipt
+DELETE /purchaseOrder/goodsReceipt/{id}
+PUT /purchaseOrder/goodsReceipt/{id}/:confirm params=[createRestOrder(query)|fields(query)]
+PUT /purchaseOrder/goodsReceipt/{id}/:receiveAndConfirm params=[receivedDate(query)|inventoryId(query)|fields(query)]
+PUT /purchaseOrder/goodsReceipt/{id}/:registerGoodsReceipt params=[registrationDate(query)|inventoryId(query)|comment(query)|fields(query)]
+GET /purchaseOrder/goodsReceiptLine params=[purchaseOrderId(query)|from(query)|count(query)|sorting(query)|fields(query)]
+POST /purchaseOrder/goodsReceiptLine body=GoodsReceiptLine
+PUT /purchaseOrder/goodsReceiptLine/list
+POST /purchaseOrder/goodsReceiptLine/list
+DELETE /purchaseOrder/goodsReceiptLine/list
+GET /purchaseOrder/goodsReceiptLine/{id} params=[fields(query)]
+PUT /purchaseOrder/goodsReceiptLine/{id} body=GoodsReceiptLine
+DELETE /purchaseOrder/goodsReceiptLine/{id}
+POST /purchaseOrder/orderline body=PurchaseOrderline
+PUT /purchaseOrder/orderline/list
+POST /purchaseOrder/orderline/list
+DELETE /purchaseOrder/orderline/list
+GET /purchaseOrder/orderline/{id} params=[fields(query)]
+PUT /purchaseOrder/orderline/{id} body=PurchaseOrderline
+DELETE /purchaseOrder/orderline/{id}
+GET /purchaseOrder/purchaseOrderIncomingInvoiceRelation params=[id(query)|orderOutId(query)|voucherId(query)|from(query)|count(query)|sorting(query)|fields(query)]
+POST /purchaseOrder/purchaseOrderIncomingInvoiceRelation body=PurchaseOrderIncomingInvoiceRelation
+POST /purchaseOrder/purchaseOrderIncomingInvoiceRelation/list
+DELETE /purchaseOrder/purchaseOrderIncomingInvoiceRelation/list params=[ids(query)]
+GET /purchaseOrder/purchaseOrderIncomingInvoiceRelation/{id} params=[fields(query)]
+DELETE /purchaseOrder/purchaseOrderIncomingInvoiceRelation/{id}
+GET /purchaseOrder/{id} params=[fields(query)]
+PUT /purchaseOrder/{id} body=PurchaseOrder
+DELETE /purchaseOrder/{id}
+PUT /purchaseOrder/{id}/:send params=[sendType(query)]
+PUT /purchaseOrder/{id}/:sendByEmail body=PurchaseOrderEmail
+POST /purchaseOrder/{id}/attachment params=[fields(query)]
+DELETE /purchaseOrder/{id}/attachment
+POST /purchaseOrder/{id}/attachment/list
+GET /reminder params=[id(query)|dateFrom(query)|dateTo(query)|termOfPaymentTo(query)|termOfPaymentFrom(query)|invoiceId(query)|customerId(query)|from(query)|count(query)|sorting(query)|fields(query)]
+GET /reminder/{id} params=[fields(query)]
+GET /reminder/{reminderId}/pdf
+GET /resultbudget params=[departmentIds(query)|projectIds(query)|productIds(query)|employeeIds(query)|year(query)|includeAllDepartmentResultBudgets(query)|includeAllProjectResultBudgets(query)|includeAllProductResultBudgets(query)|includeAllEmployeeResultBudgets(query)|from(query)|count(query)|sorting(query)|fields(query)]
+GET /resultbudget/company params=[year(query)|from(query)|count(query)|sorting(query)|fields(query)]
+GET /resultbudget/department/{id} params=[year(query)|from(query)|count(query)|sorting(query)|fields(query)]
+GET /resultbudget/employee/{id} params=[year(query)|from(query)|count(query)|sorting(query)|fields(query)]
+GET /resultbudget/product/{id} params=[year(query)|from(query)|count(query)|sorting(query)|fields(query)]
+GET /resultbudget/project/{id} params=[year(query)|from(query)|count(query)|sorting(query)|fields(query)]
+GET /saft/exportSAFT params=[year(query)]
+POST /saft/importSAFT
+GET /salary/compilation params=[employeeId(query)|year(query)|fields(query)]
+GET /salary/compilation/pdf params=[employeeId(query)|year(query)]
+POST /salary/financeTax/reconciliation/context body=FinanceTaxContextRequest
+GET /salary/financeTax/reconciliation/{reconciliationId}/overview params=[fields(query)]
+GET /salary/financeTax/reconciliation/{reconciliationId}/paymentsOverview params=[fields(query)]
+POST /salary/holidayAllowance/reconciliation/context body=HolidayAllowanceContextRequest
+GET /salary/holidayAllowance/reconciliation/{reconciliationId}/holidayAllowanceDetails params=[fields(query)]
+GET /salary/holidayAllowance/reconciliation/{reconciliationId}/holidayAllowanceSummary params=[fields(query)]
+POST /salary/mandatoryDeduction/reconciliation/context body=MandatoryDeductionContextRequest
+GET /salary/mandatoryDeduction/reconciliation/{reconciliationId}/overview params=[fields(query)]
+GET /salary/mandatoryDeduction/reconciliation/{reconciliationId}/paymentsOverview params=[fields(query)]
+POST /salary/payrollTax/reconciliation/context body=PayrollTaxContextRequest
+GET /salary/payrollTax/reconciliation/{reconciliationId}/overview params=[fields(query)]
+GET /salary/payrollTax/reconciliation/{reconciliationId}/paymentsOverview params=[fields(query)]
+GET /salary/payslip params=[id(query)|employeeId(query)|wageTransactionId(query)|activityId(query)|yearFrom(query)|yearTo(query)|monthFrom(query)|monthTo(query)|voucherDateFrom(query)|voucherDateTo(query)|comment(query)|from(query)|count(query)|sorting(query)|fields(query)]
+GET /salary/payslip/{id} params=[fields(query)]
+GET /salary/payslip/{id}/pdf
+GET /salary/settings params=[fields(query)]
+PUT /salary/settings body=SalarySettings
+GET /salary/settings/holiday params=[from(query)|count(query)|sorting(query)|fields(query)]
+POST /salary/settings/holiday body=CompanyHoliday
+PUT /salary/settings/holiday/list
+POST /salary/settings/holiday/list
+DELETE /salary/settings/holiday/list params=[ids(query)]
+PUT /salary/settings/holiday/{id} body=CompanyHoliday
+GET /salary/settings/pensionScheme params=[number(query)|from(query)|count(query)|sorting(query)|fields(query)]
+POST /salary/settings/pensionScheme body=PensionScheme
+PUT /salary/settings/pensionScheme/list
+POST /salary/settings/pensionScheme/list
+DELETE /salary/settings/pensionScheme/list params=[ids(query)]
+GET /salary/settings/pensionScheme/{id} params=[fields(query)]
+PUT /salary/settings/pensionScheme/{id} body=PensionScheme
+DELETE /salary/settings/pensionScheme/{id}
+GET /salary/settings/standardTime params=[from(query)|count(query)|sorting(query)|fields(query)]
+POST /salary/settings/standardTime body=CompanyStandardTime
+GET /salary/settings/standardTime/byDate params=[date(query)|fields(query)]
+GET /salary/settings/standardTime/{id} params=[fields(query)]
+PUT /salary/settings/standardTime/{id} body=CompanyStandardTime
+POST /salary/taxDeduction/reconciliation/context body=TaxDeductionContextRequest
+GET /salary/taxDeduction/reconciliation/{reconciliationId}/balanceAndOwedAmount params=[fields(query)]
+GET /salary/taxDeduction/reconciliation/{reconciliationId}/overview params=[fields(query)]
+GET /salary/taxDeduction/reconciliation/{reconciliationId}/paymentsOverview params=[fields(query)]
+POST /salary/transaction params=[generateTaxDeduction(query)] body=SalaryTransaction
+GET /salary/transaction/{id} params=[fields(query)]
+DELETE /salary/transaction/{id}
+POST /salary/transaction/{id}/attachment
+POST /salary/transaction/{id}/attachment/list
+PUT /salary/transaction/{id}/deleteAttachment params=[sendToVoucherInbox(query)|split(query)]
+GET /salary/type params=[id(query)|number(query)|name(query)|description(query)|showInTimesheet(query)|isInactive(query)|employeeIds(query)|from(query)|count(query)|sorting(query)|fields(query)]
+GET /salary/type/{id} params=[fields(query)]
+PUT /subscription/cancel body=AccountClosureInfo
+GET /subscription/packages params=[fields(query)]
+PUT /subscription/reactivate
+GET /supplier params=[id(query)|supplierNumber(query)|organizationNumber(query)|email(query)|invoiceEmail(query)|isInactive(query)|accountManagerId(query)|changedSince(query)|isWholesaler(query)|showProducts(query)|from(query)|count(query)|sorting(query)|fields(query)]
+POST /supplier body=Supplier
+PUT /supplier/list
+POST /supplier/list
+GET /supplier/{id} params=[fields(query)]
+PUT /supplier/{id} body=Supplier
+DELETE /supplier/{id}
+GET /supplierCustomer/search params=[query(query)|from(query)|count(query)|sorting(query)|fields(query)]
+GET /supplierInvoice params=[id(query)|invoiceDateFrom(query)|invoiceDateTo(query)|invoiceNumber(query)|kid(query)|voucherId(query)|supplierId(query)|from(query)|count(query)|sorting(query)|fields(query)]
+PUT /supplierInvoice/:addRecipient params=[employeeId(query)|invoiceIds(query)|comment(query)]
+PUT /supplierInvoice/:approve params=[invoiceIds(query)|comment(query)]
+PUT /supplierInvoice/:reject params=[comment(query)|invoiceIds(query)]
+GET /supplierInvoice/forApproval params=[searchText(query)|showAll(query)|employeeId(query)|from(query)|count(query)|sorting(query)|fields(query)]
+PUT /supplierInvoice/voucher/{id}/postings params=[sendToLedger(query)|voucherDate(query)]
+GET /supplierInvoice/{id} params=[fields(query)]
+POST /supplierInvoice/{invoiceId}/:addPayment params=[paymentType(query)|amount(query)|kidOrReceiverReference(query)|bban(query)|paymentDate(query)|useDefaultPaymentType(query)|partialPayment(query)]
+PUT /supplierInvoice/{invoiceId}/:addRecipient params=[employeeId(query)|comment(query)]
+PUT /supplierInvoice/{invoiceId}/:approve params=[comment(query)]
+PUT /supplierInvoice/{invoiceId}/:changeDimension params=[debitPostingIds(query)|dimension(query)|dimensionId(query)]
+PUT /supplierInvoice/{invoiceId}/:reject params=[comment(query)]
+GET /supplierInvoice/{invoiceId}/pdf
+GET /supportDashboard/bankruptAndExcludedCustomers params=[from(query)|count(query)|sorting(query)|fields(query)]
+GET /supportDashboard/export params=[type(query)|filter(query)|startDateRange(query)|endDateRange(query)]
+GET /timesheet/allocated params=[ids(query)|employeeIds(query)|projectIds(query)|activityIds(query)|dateFrom(query)|dateTo(query)|from(query)|count(query)|sorting(query)|fields(query)]
+POST /timesheet/allocated body=TimesheetAllocated
+PUT /timesheet/allocated/:approveList params=[ids(query)|employeeIds(query)|dateFrom(query)|dateTo(query)|managerComment(query)]
+PUT /timesheet/allocated/:unapproveList params=[ids(query)|employeeIds(query)|dateFrom(query)|dateTo(query)|managerComment(query)]
+PUT /timesheet/allocated/list
+POST /timesheet/allocated/list
+GET /timesheet/allocated/{id} params=[fields(query)]
+PUT /timesheet/allocated/{id} body=TimesheetAllocated
+DELETE /timesheet/allocated/{id}
+PUT /timesheet/allocated/{id}/:approve params=[managerComment(query)]
+PUT /timesheet/allocated/{id}/:unapprove params=[managerComment(query)]
+GET /timesheet/companyHoliday params=[ids(query)|years(query)|from(query)|count(query)|sorting(query)|fields(query)]
+POST /timesheet/companyHoliday body=CompanyHolidays
+GET /timesheet/companyHoliday/{id} params=[fields(query)]
+PUT /timesheet/companyHoliday/{id} body=CompanyHolidays
+DELETE /timesheet/companyHoliday/{id}
+GET /timesheet/entry params=[id(query)|employeeId(query)|projectId(query)|activityId(query)|dateFrom(query)|dateTo(query)|comment(query)|from(query)|count(query)|sorting(query)|fields(query)]
+POST /timesheet/entry body=TimesheetEntry
+GET /timesheet/entry/>recentActivities params=[employeeId(query)|projectId(query)|from(query)|count(query)|sorting(query)|fields(query)]
+GET /timesheet/entry/>recentProjects params=[employeeId(query)|from(query)|count(query)|sorting(query)|fields(query)]
+GET /timesheet/entry/>totalHours params=[employeeId(query)|startDate(query)|endDate(query)|fields(query)]
+PUT /timesheet/entry/list
+POST /timesheet/entry/list
+GET /timesheet/entry/{id} params=[fields(query)]
+PUT /timesheet/entry/{id} body=TimesheetEntry
+DELETE /timesheet/entry/{id} params=[version(query)]
+PUT /timesheet/month/:approve params=[id(query)|employeeIds(query)|monthYear(query)|approvedUntilDate(query)]
+PUT /timesheet/month/:complete params=[id(query)|employeeIds(query)|monthYear(query)]
+PUT /timesheet/month/:reopen params=[id(query)|employeeIds(query)|monthYear(query)]
+PUT /timesheet/month/:unapprove params=[id(query)|employeeIds(query)|monthYear(query)]
+GET /timesheet/month/byMonthNumber params=[employeeIds(query)|monthYear(query)|from(query)|count(query)|sorting(query)|fields(query)]
+GET /timesheet/month/byMonthNumberList params=[employeeIds(query)|monthYearList(query)|from(query)|count(query)|sorting(query)|fields(query)]
+GET /timesheet/month/{id} params=[fields(query)]
+GET /timesheet/salaryProjectTypeSpecification params=[dateFrom(query)|dateTo(query)|employeeId(query)|projectId(query)|activityId(query)|includeNotConnectedToActivities(query)|from(query)|count(query)|sorting(query)|fields(query)]
+POST /timesheet/salaryProjectTypeSpecification body=TimesheetProjectSalaryTypeSpecification
+GET /timesheet/salaryProjectTypeSpecification/{id} params=[fields(query)]
+PUT /timesheet/salaryProjectTypeSpecification/{id} body=TimesheetProjectSalaryTypeSpecification
+DELETE /timesheet/salaryProjectTypeSpecification/{id}
+GET /timesheet/salaryTypeSpecification params=[dateFrom(query)|dateTo(query)|employeeId(query)|from(query)|count(query)|sorting(query)|fields(query)]
+POST /timesheet/salaryTypeSpecification body=TimesheetSalaryTypeSpecification
+GET /timesheet/salaryTypeSpecification/{id} params=[fields(query)]
+PUT /timesheet/salaryTypeSpecification/{id} body=TimesheetSalaryTypeSpecification
+DELETE /timesheet/salaryTypeSpecification/{id}
+GET /timesheet/settings params=[fields(query)]
+GET /timesheet/timeClock params=[id(query)|employeeId(query)|projectId(query)|activityId(query)|dateFrom(query)|dateTo(query)|hourId(query)|isRunning(query)|from(query)|count(query)|sorting(query)|fields(query)]
+PUT /timesheet/timeClock/:start params=[employeeId(query)|projectId(query)|activityId(query)|date(query)|lunchBreakDuration(query)|comment(query)]
+GET /timesheet/timeClock/present params=[employeeId(query)|fields(query)]
+GET /timesheet/timeClock/{id} params=[fields(query)]
+PUT /timesheet/timeClock/{id} body=TimeClock
+PUT /timesheet/timeClock/{id}/:stop params=[version(query)|comment(query)]
+GET /timesheet/week params=[ids(query)|employeeIds(query)|weekYear(query)|approvedBy(query)|from(query)|count(query)|sorting(query)|fields(query)]
+PUT /timesheet/week/:approve params=[id(query)|employeeId(query)|weekYear(query)]
+PUT /timesheet/week/:complete params=[id(query)|employeeId(query)|weekYear(query)]
+PUT /timesheet/week/:reopen params=[id(query)|employeeId(query)|weekYear(query)]
+PUT /timesheet/week/:unapprove params=[id(query)|employeeId(query)|weekYear(query)]
+GET /token/consumer/byToken params=[token(query)|fields(query)]
+PUT /token/employee/:create params=[tokenName(query)|consumerName(query)|employeeId(query)|companyOwned(query)|expirationDate(query)]
+PUT /token/session/:create params=[consumerToken(query)|employeeToken(query)|expirationDate(query)]
+POST /token/session/:create body=PostSessionTokenBody
+GET /token/session/>whoAmI params=[fields(query)]
+DELETE /token/session/{token}
+GET /transportType params=[supplier(query)|count(query)|fields(query)|from(query)|sorting(query)]
+GET /transportType/{id} params=[fields(query)]
+GET /travelExpense params=[employeeId(query)|departmentId(query)|projectId(query)|projectManagerId(query)|departureDateFrom(query)|returnDateTo(query)|state(query)|from(query)|count(query)|sorting(query)|fields(query)]
+POST /travelExpense body=TravelExpense
+PUT /travelExpense/:approve params=[id(query)|overrideApprovalFlow(query)]
+PUT /travelExpense/:copy params=[id(query)]
+PUT /travelExpense/:createVouchers params=[id(query)|date(query)]
+PUT /travelExpense/:deliver params=[id(query)]
+PUT /travelExpense/:unapprove params=[id(query)]
+PUT /travelExpense/:undeliver params=[id(query)] body=TravelExpense
+GET /travelExpense/accommodationAllowance params=[travelExpenseId(query)|rateTypeId(query)|rateCategoryId(query)|rateFrom(query)|rateTo(query)|countFrom(query)|countTo(query)|amountFrom(query)|amountTo(query)|location(query)|address(query)|from(query)|count(query)|sorting(query)|fields(query)]
+POST /travelExpense/accommodationAllowance body=AccommodationAllowance
+GET /travelExpense/accommodationAllowance/{id} params=[fields(query)]
+PUT /travelExpense/accommodationAllowance/{id} body=AccommodationAllowance
+DELETE /travelExpense/accommodationAllowance/{id}
+GET /travelExpense/cost params=[travelExpenseId(query)|vatTypeId(query)|currencyId(query)|rateFrom(query)|rateTo(query)|countFrom(query)|countTo(query)|amountFrom(query)|amountTo(query)|location(query)|address(query)|from(query)|count(query)|sorting(query)|fields(query)]
+POST /travelExpense/cost body=Cost
+PUT /travelExpense/cost/list
+GET /travelExpense/cost/{id} params=[fields(query)]
+PUT /travelExpense/cost/{id} body=Cost
+DELETE /travelExpense/cost/{id}
+GET /travelExpense/costCategory params=[id(query)|description(query)|isInactive(query)|showOnEmployeeExpenses(query)|query(query)|from(query)|count(query)|sorting(query)|fields(query)]
+GET /travelExpense/costCategory/{id} params=[fields(query)]
+POST /travelExpense/costParticipant body=CostParticipant
+POST /travelExpense/costParticipant/createCostParticipantAdvanced params=[displayName(query)|costId(query)|employeeId(query)]
+POST /travelExpense/costParticipant/list
+DELETE /travelExpense/costParticipant/list
+GET /travelExpense/costParticipant/{costId}/costParticipants params=[from(query)|count(query)|sorting(query)|fields(query)]
+GET /travelExpense/costParticipant/{id} params=[fields(query)]
+DELETE /travelExpense/costParticipant/{id}
+POST /travelExpense/drivingStop body=DrivingStop
+GET /travelExpense/drivingStop/{id} params=[fields(query)]
+DELETE /travelExpense/drivingStop/{id}
+GET /travelExpense/mileageAllowance params=[travelExpenseId(query)|rateTypeId(query)|rateCategoryId(query)|kmFrom(query)|kmTo(query)|rateFrom(query)|rateTo(query)|amountFrom(query)|amountTo(query)|departureLocation(query)|destination(query)|dateFrom(query)|dateTo(query)|isCompanyCar(query)|from(query)|count(query)|sorting(query)|fields(query)]
+POST /travelExpense/mileageAllowance body=MileageAllowance
+GET /travelExpense/mileageAllowance/{id} params=[fields(query)]
+PUT /travelExpense/mileageAllowance/{id} body=MileageAllowance
+DELETE /travelExpense/mileageAllowance/{id}
+GET /travelExpense/passenger params=[mileageAllowance(query)|name(query)|from(query)|count(query)|sorting(query)|fields(query)]
+POST /travelExpense/passenger body=Passenger
+POST /travelExpense/passenger/list
+DELETE /travelExpense/passenger/list
+GET /travelExpense/passenger/{id} params=[fields(query)]
+PUT /travelExpense/passenger/{id} body=Passenger
+DELETE /travelExpense/passenger/{id}
+GET /travelExpense/paymentType params=[id(query)|description(query)|isInactive(query)|showOnEmployeeExpenses(query)|query(query)|from(query)|count(query)|sorting(query)|fields(query)]
+GET /travelExpense/paymentType/{id} params=[fields(query)]
+GET /travelExpense/perDiemCompensation params=[travelExpenseId(query)|rateTypeId(query)|rateCategoryId(query)|overnightAccommodation(query)|countFrom(query)|countTo(query)|rateFrom(query)|rateTo(query)|amountFrom(query)|amountTo(query)|location(query)|address(query)|isDeductionForBreakfast(query)|isLunchDeduction(query)|isDinnerDeduction(query)|from(query)|count(query)|sorting(query)|fields(query)]
+POST /travelExpense/perDiemCompensation body=PerDiemCompensation
+GET /travelExpense/perDiemCompensation/{id} params=[fields(query)]
+PUT /travelExpense/perDiemCompensation/{id} body=PerDiemCompensation
+DELETE /travelExpense/perDiemCompensation/{id}
+GET /travelExpense/rate params=[rateCategoryId(query)|type(query)|isValidDayTrip(query)|isValidAccommodation(query)|isValidDomestic(query)|isValidForeignTravel(query)|requiresZone(query)|requiresOvernightAccommodation(query)|dateFrom(query)|dateTo(query)|from(query)|count(query)|sorting(query)|fields(query)]
+GET /travelExpense/rate/{id} params=[fields(query)]
+GET /travelExpense/rateCategory params=[type(query)|name(query)|travelReportRateCategoryGroupId(query)|ameldingWageCode(query)|wageCodeNumber(query)|isValidDayTrip(query)|isValidAccommodation(query)|isValidDomestic(query)|requiresZone(query)|isRequiresOvernightAccommodation(query)|dateFrom(query)|dateTo(query)|from(query)|count(query)|sorting(query)|fields(query)]
+GET /travelExpense/rateCategory/{id} params=[fields(query)]
+GET /travelExpense/rateCategoryGroup params=[name(query)|isForeignTravel(query)|dateFrom(query)|dateTo(query)|from(query)|count(query)|sorting(query)|fields(query)]
+GET /travelExpense/rateCategoryGroup/{id} params=[fields(query)]
+GET /travelExpense/settings params=[fields(query)]
+GET /travelExpense/zone params=[id(query)|code(query)|isDisabled(query)|query(query)|date(query)|from(query)|count(query)|sorting(query)|fields(query)]
+GET /travelExpense/zone/{id} params=[fields(query)]
+GET /travelExpense/{id} params=[fields(query)]
+PUT /travelExpense/{id} body=TravelExpense
+DELETE /travelExpense/{id}
+PUT /travelExpense/{id}/convert
+GET /travelExpense/{travelExpenseId}/attachment
+POST /travelExpense/{travelExpenseId}/attachment params=[createNewCost(query)]
+DELETE /travelExpense/{travelExpenseId}/attachment params=[version(query)|sendToInbox(query)|split(query)]
+POST /travelExpense/{travelExpenseId}/attachment/list params=[createNewCost(query)]
+POST /userLicense/export body=UserLicenseExport
+GET /vatReturns/comment params=[from(query)|count(query)|sorting(query)|fields(query)]
+GET /vatReturns/comment/>all params=[from(query)|count(query)|sorting(query)|fields(query)]
+GET /vatTermSizeSettings params=[from(query)|count(query)|sorting(query)|fields(query)]
+POST /vatTermSizeSettings body=VatTermSizeSettings
+GET /vatTermSizeSettings/{id} params=[fields(query)]
+PUT /vatTermSizeSettings/{id} body=VatTermSizeSettings
+DELETE /vatTermSizeSettings/{id}
+GET /voucherApprovalListElement/{id} params=[fields(query)]
+GET /voucherInbox/inboxCount params=[fields(query)]
+GET /voucherMessage params=[voucherIds(query)|from(query)|count(query)|sorting(query)|fields(query)]
+POST /voucherMessage body=VoucherMessage
+GET /voucherStatus params=[ids(query)|voucherIds(query)|status(query)|type(query)|from(query)|count(query)|sorting(query)|fields(query)]
+POST /voucherStatus body=VoucherStatus
+GET /voucherStatus/{id} params=[fields(query)]
+GET /yearEnd/enumType/businessActivityTypes params=[id(query)|query(query)|from(query)|count(query)|sorting(query)|fields(query)]
+GET /yearEnd/penneo/casefiles params=[year(query)]
+POST /yearEnd/penneo/casefiles body=CaseFileRequest
+DELETE /yearEnd/penneo/casefiles/{caseFileId}
+POST /yearEnd/penneo/casefiles/{caseFileId}/activate params=[year(query)]
+DELETE /yearEnd/penneo/casefiles/{caseFileId}/signers/{signerId}
+POST /yearEnd/penneo/casefiles/{caseFileId}/signers/{signerId}/reactivate
+POST /yearEnd/penneo/casefiles/{caseFileId}/signers/{signerId}/resend
+POST /yearEnd/penneo/documents body=AddDocumentRequest
+PUT /yearEnd/penneo/documents/{documentId} body=UpdateDocumentRequest
+DELETE /yearEnd/penneo/documents/{documentId}
+GET /yearEnd/penneo/documents/{documentId}/download
+GET /yearEnd/penneo/recipients params=[caseFileId(query)]
+POST /yearEnd/penneo/recipients body=AddRecipientRequest
+DELETE /yearEnd/penneo/recipients/{id} params=[caseFileId(query)]
+GET /yearEnd/penneo/session params=[year(query)]
+POST /yearEnd/penneo/signature-lines body=CreateAndLinkSignatureLineRequest
+POST /yearEnd/penneo/sync
+POST /yearEnd/penneo/updateCompletedStatus
+PUT /yearEnd/researchAndDevelopment2024 body=ResearchAndDevelopment2024
+POST /yearEnd/researchAndDevelopment2024 body=ResearchAndDevelopment2024
+DELETE /yearEnd/researchAndDevelopment2024 body=ResearchAndDevelopment2024
+GET /yearEnd/{yearEndReportId}/researchAndDevelopment2024 params=[fields(query)|from(query)|count(query)|sorting(query)]

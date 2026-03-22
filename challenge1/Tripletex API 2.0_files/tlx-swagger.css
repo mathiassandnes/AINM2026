@@ -1,0 +1,131 @@
+body {
+    background-color: #ebf1ed;
+}
+
+.topbar {
+    display: none;
+}
+
+#swagger-ui .swagger-ui .swagger-ui .wrapper {
+    padding: 20px;
+    background-color: white;
+    margin-top: 20px;
+}
+
+/* models */
+#swagger-ui .swagger-ui .swagger-ui .wrapper:last-child {
+    background: none;
+    padding: 0;
+}
+#swagger-ui .swagger-ui .swagger-ui .wrapper:last-child .models {
+    background: white;
+    border-radius: 0;
+    border: none;
+}
+
+#swagger-ui .information-container .info {
+    margin: 0;
+}
+
+#swagger-ui .scheme-container {
+    background: none;
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+}
+
+#swagger-ui .swagger-ui .swagger-ui .auth-container .wrapper {
+    padding: 0;
+    margin-top: 10px;
+}
+
+/* Give feedback: */
+
+.mdl-button:hover {
+    background-color: rgb(200, 200, 200);
+}
+.mdl-button {
+    background: 0 0;
+    border: none;
+    border-radius: 2px;
+    color: #000;
+    position: relative;
+    height: 36px;
+    margin: 0;
+    min-width: 64px;
+    padding: 0 16px;
+    display: inline-block;
+    font-family: 'Rubik', 'Helvetica', 'Arial', sans-serif;
+    font-size: 14px;
+    font-weight: 470;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    overflow: hidden;
+    will-change: box-shadow;
+    transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1),
+        background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+        color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    line-height: 36px;
+    vertical-align: middle;
+}
+.mdl-button--raised {
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+        0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+.mdl-button .material-icons {
+    vertical-align: middle;
+}
+.material-icons {
+    font-family: 'Material Icons Outlined';
+    font-weight: 400;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    word-wrap: normal;
+    -moz-font-feature-settings: 'liga';
+    font-feature-settings: 'liga';
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+}
+.mdl-button__ripple-container {
+    display: block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 0;
+    overflow: hidden;
+}
+.mdl-ripple.is-animating {
+    transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1),
+        width 0.3s cubic-bezier(0, 0, 0.2, 1),
+        height 0.3s cubic-bezier(0, 0, 0.2, 1),
+        opacity 0.6s cubic-bezier(0, 0, 0.2, 1);
+    transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1),
+        width 0.3s cubic-bezier(0, 0, 0.2, 1),
+        height 0.3s cubic-bezier(0, 0, 0.2, 1),
+        opacity 0.6s cubic-bezier(0, 0, 0.2, 1),
+        -webkit-transform 0.3s cubic-bezier(0, 0, 0.2, 1);
+}
+.mdl-ripple {
+    background: #000;
+    border-radius: 50%;
+    height: 50px;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 50px;
+    overflow: hidden;
+}
